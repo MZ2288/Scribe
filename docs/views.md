@@ -26,5 +26,5 @@
 [landing]: ./wireframes/landing.png
 [notes]: ./wireframes/root_notes.png
 [notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+[notebook-form]: ./wireframes/NewNoteBook.png
 [component-heirarchy]: ./wireframes/component_heirarchy.png
