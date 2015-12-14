@@ -7,7 +7,7 @@
 ## Minimum Viable Product
 
 Scribe is a web application inspired by Evernote built using Ruby on Rails
-and React.js. FresherNote allows users to:
+and React.js. Scribe allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
