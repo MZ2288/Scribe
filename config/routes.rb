@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "staticpages#root"
+  root "static_pages#root"
   namespace :api, defaults: {format: :json} do
     resources :notes
   end

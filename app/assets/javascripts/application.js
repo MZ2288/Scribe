@@ -13,14 +13,4 @@
 //= requre bootstrap
 //= require jquery
 //= require jquery_ujs
-//= require eventemitter
-//= require flux
-//= require react
-//= require react_ujs
-//= require react_router.min
-//= require react_bootstrap
-//= require quill
-//= require react-quill.min
-//= require taggle.min
-//= require components
-//= require_tree .
+//= require bundle.js
