@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root "staticpages#root"
-  namespace api:, defaults: {format: :json} do
+  namespace :api, defaults: {format: :json} do
     resources :notes
   end
 
-  resources users:, only: [:new, :create]
-  resource session:, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
+  resource :session, only: [:new, :create, :destroy]
   # namespace :api defaults: {format: :json} do
   #
   # end

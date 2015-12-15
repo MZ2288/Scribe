@@ -1,0 +1,37 @@
+{
+  "name": "Scribe",
+  "version": "1.0.0",
+  "description": "[Heroku link][heroku] **NB:** This should be a link to your production site",
+  "main": "webpack.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MZ2288/Scribe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MZ2288/Scribe/issues"
+  },
+  "homepage": "https://github.com/MZ2288/Scribe#readme",
+
+  "devDependencies": {
+    "babel-core": "^6.2.0",
+    "babel-loader": "^6.2.0",
+    "babel-preset-react": "^6.1.18",
+    "webpack": "^1.12.2"
+  },
+  "dependencies": {
+    "flux": "^2.1.1",
+    "history": "~1.13.0",
+    "jquery": "^2.1.4",
+    "react": "^0.14.2",
+    "react-addons-linked-state-mixin": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-router": "^1.0.0-rc4"
+  }
+}
