@@ -48,26 +48,32 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	var ReactRouter = __webpack_require__(159);
-	var root = document.getElementById('root');
 	var Router = ReactRouter.Router;
 	var Route = ReactRouter.Route;
 	var IndexRoute = ReactRouter.IndexRoute;
+	var Splash = __webpack_require__(210);
 	
 	var App = React.createClass({
 	  displayName: 'App',
 	
 	  render: function () {
-	    return React.createElement('div', null);
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(Splash, null)
+	    );
 	  }
 	});
 	//
 	var routes = React.createElement(Route, { path: '/', component: App });
 	
-	ReactDOM.render(React.createElement(
-	  Router,
-	  null,
-	  routes
-	), document.getElementById('root'));
+	document.addEventListener("DOMContentLoaded", function () {
+	  ReactDOM.render(React.createElement(
+	    Router,
+	    null,
+	    routes
+	  ), document.getElementById('root'));
+	});
 
 /***/ },
 /* 1 */
@@ -24421,6 +24427,78 @@
 	
 	exports['default'] = useBasename;
 	module.exports = exports['default'];
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var Splash = React.createClass({
+	  displayName: "Splash",
+	
+	  render: function () {
+	    return React.createElement(
+	      "div",
+	      { className: "splash-container" },
+	      React.createElement(
+	        "h1",
+	        null,
+	        "Scribe"
+	      ),
+	      React.createElement(
+	        "span",
+	        null,
+	        "Welcome to Scribe! An Evernote inspired web app built using Ruby on Rails and React.js"
+	      ),
+	      React.createElement(
+	        "ul",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: "https://github.com/MZ2288/Scribe" },
+	            React.createElement(
+	              "span",
+	              { className: "underline" },
+	              "Github"
+	            )
+	          )
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: "/session/new" },
+	            React.createElement(
+	              "span",
+	              { className: "underline" },
+	              "Sign In"
+	            )
+	          )
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: "/users/new" },
+	            React.createElement(
+	              "span",
+	              { className: "underline" },
+	              "Sign Up"
+	            )
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = Splash;
 
 /***/ }
 /******/ ]);

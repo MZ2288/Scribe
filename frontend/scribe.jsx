@@ -2,16 +2,16 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
-var root = document.getElementById('root');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
+var Splash = require('./components/splash');
 
 var App = React.createClass({
   render: function () {
     return (
       <div>
-        
+        <Splash></Splash>
       </div>
     );
   }
@@ -19,5 +19,6 @@ var App = React.createClass({
 //
 var routes = <Route path="/" component={App}></Route>;
 
-
-ReactDOM.render(<Router>{routes}</Router>, document.getElementById('root'));
+document.addEventListener("DOMContentLoaded", function () {
+  ReactDOM.render(<Router>{routes}</Router>, document.getElementById('root'));
+});
