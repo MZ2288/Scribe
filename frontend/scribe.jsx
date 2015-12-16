@@ -1,19 +1,18 @@
-
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var IndexRoute = ReactRouter.IndexRoute;
-var NotebookIndex = require('./components/notebook_index');
+var ReactDOM = require('react-dom'),
+    React = require('react'),
+    ReactRouter = require('react-router'),
+    Router = ReactRouter.Router,
+    Route = ReactRouter.Route,
+    IndexRoute = ReactRouter.IndexRoute,
+    NotebookIndex = require('./components/notebooks/notebook_index');
 
 var App = React.createClass({
-  render: function () {
+  render: function(){
     return (
-      <div>
-        More hello
-        {this.props.children}
-      </div>
+        <div>
+          <header><h1>Scribe</h1></header>
+          {this.props.children}
+        </div>
     );
   }
 });

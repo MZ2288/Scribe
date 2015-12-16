@@ -22,6 +22,18 @@ var ApiUtil = {
         NotebookActions.receiveAllNotebooks(notebooks);
       }
     });
+  },
+
+  createNotebook: function (notebook) {
+    debugger
+    $.ajax({
+      url: 'api/notebooks',
+      type: "POST",
+      data: {notebook: notebook},
+      success: function (newNotebook) {
+        NotebookActions.addNotebook(newNotebook);
+      }
+    });
   }
 };
 

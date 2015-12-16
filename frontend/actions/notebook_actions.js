@@ -7,7 +7,14 @@ var NotebookActions = {
       actionType: NotebookConstants.RECEIVE_ALL_NOTEBOOKS,
       notebooks: notebooks
     });
-  }
+  },
+
+  addNotebook: function (notebook) {
+    AppDispatcher.dispatch({
+      actionType: NotebookConstants.ADD_NOTEBOOK,
+      notebook: notebook
+    });
+  },
 };
 
 module.exports = NotebookActions;

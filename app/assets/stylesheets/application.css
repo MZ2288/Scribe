@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+ .group:after {
+   content: "";
+   display: block;
+   clear: both;
+ }
+
+ .container{
+   outline: 1px solid;
+   width: 1000px
+ }
+
+ .notebook-container{
+   float: left;
+   width: 30%;
+ }
+
+ .notes-container{
+   float: right;
+   width: 70%
+ }

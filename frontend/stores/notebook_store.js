@@ -12,12 +12,18 @@ NoteBookStore.all = function () {
   return _noteBooks.slice();
 };
 
+NoteBookStore.addNotebook = function (notebook) {
+  _noteBooks.push(notebook);
+};
 
 NoteBookStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case NotebookConstants.RECEIVE_ALL_NOTEBOOKS:
-    var result = resetNoteBooks(payload.notebooks);
-    NoteBookStore.__emitChange();
+      var result = resetNoteBooks(payload.notebooks);
+      NoteBookStore.__emitChange();
+    case NotebookConstants.ADD_NOTEBOOK:
+      NoteBookStore.addNotebook(payload.notebook);
+      NoteBookStore.__emitChange();
   }
 };
 
