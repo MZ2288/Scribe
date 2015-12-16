@@ -23,10 +23,17 @@ var NotebookIndex = React.createClass({
   },
 
   render: function () {
+    console.log(this.state.notebooks);
+    var something;
+    if (typeof this.state.notebooks !== 'undefined') {
+      something = this.state.notebooks.map(function(notebook) {
+        return <div>{notebook}</div>;
+      });
+    }
     return (
       <div>
         <ul>
-          {this.state.notebooks};
+          {something}
         </ul>
         Hello
       </div>

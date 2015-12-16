@@ -2,7 +2,7 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 var NotebookConstants = require('../constants/notebook_constants');
 
 var NotebookActions = {
-  receiveAll: function(notebooks){
+  receiveAllNotebooks: function(notebooks){
     AppDispatcher.dispatch({
       actionType: NotebookConstants.RECEIVE_ALL_NOTEBOOKS,
       notebooks: notebooks

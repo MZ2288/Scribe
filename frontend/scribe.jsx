@@ -20,7 +20,7 @@ var App = React.createClass({
 
 var routes = (
   <Route path="/" component={App}>
-    <Route path="notebooks" component={NotebookIndex} />
+    <IndexRoute component={NotebookIndex} />
   </Route>
 );
 
