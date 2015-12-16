@@ -8,3 +8,7 @@
 20.times do
   Note.create!(title: "test", body: "body-test", user_id: 1)
 end
+
+20.times do |i|
+  Notebook.create!(title: "this is book #{i}", user_id: 1)
+end

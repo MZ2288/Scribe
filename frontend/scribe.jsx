@@ -5,21 +5,22 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
-var Dashboard = require('./components/dashboard');
+var NotebookIndex = require('./components/notebook_index');
 
 var App = React.createClass({
   render: function () {
     return (
       <div>
+        More hello
         {this.props.children}
       </div>
     );
   }
 });
-//
+
 var routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Dashboard} />
+    <Route path="notebooks" component={NotebookIndex} />
   </Route>
 );
 
