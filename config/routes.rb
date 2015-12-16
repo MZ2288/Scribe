@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'tags/index'
+  root 'static_pages#root'
 
   namespace :api, defaults: {format: :json} do
     resources :notes

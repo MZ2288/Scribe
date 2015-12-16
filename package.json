@@ -19,12 +19,16 @@
   },
   "homepage": "https://github.com/MZ2288/Scribe#readme",
 
-  "devDependencies": {
-    "babel-core": "^6.2.0",
-    "babel-loader": "^6.2.0",
-    "babel-preset-react": "^6.1.18",
-    "webpack": "^1.12.2"
+  "engines": {
+  "node": "4.1.1",
+  "npm": "2.1.x"
+
   },
+
+  "scripts": {
+    "postinstall": "./node_modules/.bin/webpack"
+  },
+
   "dependencies": {
     "flux": "^2.1.1",
     "history": "~1.13.0",
@@ -32,6 +36,10 @@
     "react": "^0.14.2",
     "react-addons-linked-state-mixin": "^0.14.2",
     "react-dom": "^0.14.2",
-    "react-router": "^1.0.0-rc4"
+    "react-router": "^1.0.0-rc4",
+    "babel-core": "^6.2.0",
+    "babel-loader": "^6.2.0",
+    "babel-preset-react": "^6.1.18",
+    "webpack": "^1.12.2"
   }
 }
