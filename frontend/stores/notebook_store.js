@@ -9,6 +9,6 @@ NoteBookStore.all = function () {
 
 NoteBookStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
-    
+
   }
-}
+};
