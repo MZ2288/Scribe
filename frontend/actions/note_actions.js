@@ -4,10 +4,17 @@ var NoteConstants = require('../constants/note_constants');
 var NoteActions = {
   receiveNotes: function (notes) {
     AppDispatcher.dispatch({
-      actionType: NoteConstants.RESET_NOTES,
+      actionType: NoteConstants.RECEIVED_ALL_NOTES,
       notes: notes
+    });
+  },
+
+  addNote: function (note) {
+    AppDispatcher.dispatch({
+      actionType: NoteConstants.CREATE_NOTE,
+      note: note
     });
   }
 };
 
-module.exports = NoteActions; 
+module.exports = NoteActions;

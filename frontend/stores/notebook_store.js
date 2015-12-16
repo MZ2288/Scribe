@@ -5,7 +5,7 @@ var NotebookConstants = require('../constants/notebook_constants');
 var _noteBooks = [];
 
 var resetNoteBooks = function (notebooks) {
-  _noteBooks = notebooks.slice();
+  _noteBooks = notebooks;
 };
 
 NoteBookStore.all = function () {
@@ -19,7 +19,7 @@ NoteBookStore.addNotebook = function (notebook) {
 NoteBookStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case NotebookConstants.RECEIVE_ALL_NOTEBOOKS:
-      var result = resetNoteBooks(payload.notebooks);
+      resetNoteBooks(payload.notebooks);
       NoteBookStore.__emitChange();
     case NotebookConstants.ADD_NOTEBOOK:
       NoteBookStore.addNotebook(payload.notebook);

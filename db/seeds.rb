@@ -5,8 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-20.times do
-  Note.create!(title: "test", body: "body-test", user_id: 1)
+20.times do |i|
+  8.times do
+    Note.create!(title: "test: #{i}", body: "body-test #{i}", user_id: 1, notebook_id: i)
+  end
 end
 
 20.times do |i|

@@ -1,9 +1,9 @@
 var React = require('react'),
-    ApiUtil = require('../../util/api_util');
-    
-
+    ApiUtil = require('../../util/api_util'),
+    LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var NoteBookForm = React.createClass({
+  mixins: [LinkedStateMixin],
 
   getInitialState: function () {
     return ({title: "", description: ""});
@@ -20,7 +20,7 @@ var NoteBookForm = React.createClass({
       <form onSubmit={this.createNotebook}>
         <div>
           <label>Title:</label>
-          <input type='text'/>
+            <input type='text' valueLink={this.linkState('title')}/>
         </div>
         <button>Create Notebook</button>
       </form>

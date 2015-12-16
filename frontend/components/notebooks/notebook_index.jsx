@@ -3,12 +3,14 @@ var NoteBookStore = require('../../stores/notebook_store');
 var ApiUtil = require('../../util/api_util');
 var NoteBookForm = require('./notebookform');
 var NotebookIndexItem = require('./indexItem');
+var NoteIndex = require('../notes/note_index');
 
 var NotebookIndex = React.createClass({
 
   getInitialState: function () {
     return {
-      notebooks: NoteBookStore.all()
+      notebooks: NoteBookStore.all(),
+      selectedNotebook: null
     };
   },
 
@@ -25,10 +27,16 @@ var NotebookIndex = React.createClass({
     this.setState({notebooks: NoteBookStore.all() });
   },
 
+  selectNotebook: function (notebook) {
+    this.setState({ selectedNotebook: notebook });
+  },
+
   render: function(){
   var notebooks = this.state.notebooks.map(function (notebook, idx) {
-    return <NotebookIndexItem notebook={notebook} key={idx}/>;
-  });
+    return <NotebookIndexItem handleClick={this.selectNotebook} notebook={notebook} key={idx}/>;
+  }.bind(this));
+
+  var notesIndex = this.state.selectedNotebook ? <NoteIndex notebook={this.state.selectedNotebook}/> : <div>Working</div>;
 
   return (
     <div className='container group'>
@@ -36,8 +44,8 @@ var NotebookIndex = React.createClass({
         <NoteBookForm/>
         {notebooks}
       </div>
-      <div className='notes-container'>
-        {this.props.children}
+      <div>
+        {notesIndex}
       </div>
     </div>
   );

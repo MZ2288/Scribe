@@ -1,1 +1,1 @@
-json.array! @Notebooks, :id, :title, :user_id
+json.array! @notebooks, :id, :title, :user_id
