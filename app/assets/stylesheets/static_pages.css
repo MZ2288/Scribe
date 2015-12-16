@@ -3,13 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 body {
-  display: inline-block;
+  display: relative;
   margin: 0px auto;
   text-align: center;
-  background: white;
 }
 
-#root {
+#picture {
   background: url(workspace.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -20,8 +19,12 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: -1;
 }
 
 .splash-container {
   background-color: white;
+  display: inline-block;
+  margin: auto;
+  text-align: center;
 }

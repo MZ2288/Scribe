@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  root "static_pages#root"
+  get 'tags/index'
+
   namespace :api, defaults: {format: :json} do
     resources :notes
+    resources :notebooks
+    resources :tags
   end
 
   resources :users, only: [:new, :create]
