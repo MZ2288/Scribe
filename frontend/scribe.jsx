@@ -5,6 +5,7 @@ var ReactDOM = require('react-dom'),
     Route = ReactRouter.Route,
     IndexRoute = ReactRouter.IndexRoute,
     NotebookIndex = require('./components/notebooks/notebook_index'),
+    Sidebar = require('./components/sidebar'),
     NoteIndex = require('./components/notes/note_index');
 
 var App = React.createClass({
@@ -12,6 +13,7 @@ var App = React.createClass({
     return (
         <div>
           <header><h1>Scribe</h1></header>
+          <Sidebar/>
           <NotebookIndex/>
           {this.props.children}
         </div>

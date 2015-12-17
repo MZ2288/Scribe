@@ -16,9 +16,9 @@ NoteStore.addNote = function (note) {
   _notes.push(note);
 };
 
-NoteStore.deleteNote = function (note) {
+NoteStore.deleteNote = function (id) {
   for (var i = 0; i < _notes.length; i++) {
-    if (_notes[i] === note) {
+    if (_notes[i].id === id) {
       _notes.splice(i, 1);
     }
   }

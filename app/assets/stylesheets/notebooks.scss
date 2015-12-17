@@ -1,3 +1,25 @@
 // Place all the styles related to the Notebooks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.container{
+  outline: 1px solid;
+  width: 1000px
+}
+
+.notebook-container{
+  float: left;
+  width: 30%;
+  border-style: solid;
+  border-width: thin;
+}
+
+.notes-container{
+  float: right;
+  width: 70%
+}

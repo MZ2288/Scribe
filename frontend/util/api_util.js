@@ -51,8 +51,18 @@ var ApiUtil = {
     $.ajax({
       url: "/api/notes/" + note.id,
       type: "DELETE",
-      success: function (delNote) {
-        NoteActions.deleteNote(delNote);
+      success: function (id) {
+        NoteActions.deleteNote(id);
+      }
+    });
+  },
+
+  deleteNotebook: function (notebook) {
+    $.ajax({
+      url: "/api/notebooks/" + notebook.id,
+      type: "DELETE",
+      success: function (id) {
+        NotebookActions.deleteNotebook(id);
       }
     });
   }

@@ -15,6 +15,13 @@ var NotebookActions = {
       notebook: notebook
     });
   },
+
+  deleteNotebook: function (notebook) {
+    AppDispatcher.dispatch({
+      actionType: NotebookConstants.DELETE_NOTEBOOK,
+      notebook: notebook
+    });
+  }
 };
 
 module.exports = NotebookActions;
