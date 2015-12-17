@@ -40,7 +40,7 @@ var ApiUtil = {
     $.ajax({
       url: 'api/notes',
       type: "POST",
-      data: {note: note},
+      data: {note: note, notebook_id: note.notebook_id},
       success: function (newNote) {
         NoteActions.addNote(newNote);
       }

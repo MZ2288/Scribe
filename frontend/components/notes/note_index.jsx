@@ -18,6 +18,10 @@ var NoteIndex = React.createClass({
     this.NoteStoreListener.remove();
   },
 
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchNotes(newProps.notebook.id);
+  },
+
   _onChange: function () {
     this.setState({notes: NoteStore.all() });
   },
@@ -29,6 +33,7 @@ var NoteIndex = React.createClass({
 
     return (
       <div>
+          <NoteForm notebookId={this.props.notebook.id}/>
           {this.props.notebook.id}
           <ul>
             {noteItems}

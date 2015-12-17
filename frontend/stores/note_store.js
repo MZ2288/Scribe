@@ -1,7 +1,8 @@
 var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
     _notes = [],
-    NoteStore = new Store(AppDispatcher);
+    NoteStore = new Store(AppDispatcher),
+    NOTE_CONSTANTS = require('../constants/note_constants');
 
 var resetNotes = function(notes){
   _notes = notes;
@@ -17,11 +18,11 @@ NoteStore.addNote = function (note) {
 
 NoteStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
-    case 'RECEIVED_ALL_NOTES':
+    case NOTE_CONSTANTS.RECEIVED_ALL_NOTES:
       resetNotes(payload.notes);
       NoteStore.__emitChange();
       break;
-    case "CREATE_NOTE":
+    case NOTE_CONSTANTS.CREATE_NOTE:
       NoteStore.addNote(payload.note);
       NoteStore.__emitChange();
   }

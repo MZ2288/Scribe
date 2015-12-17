@@ -31,18 +31,27 @@ var NotebookIndex = React.createClass({
     this.setState({ selectedNotebook: notebook });
   },
 
+  unselectNotebook: function () {
+    this.setState({ selectedNotebook: null });
+  },
+
   render: function(){
   var notebooks = this.state.notebooks.map(function (notebook, idx) {
     return <NotebookIndexItem handleClick={this.selectNotebook} notebook={notebook} key={idx}/>;
   }.bind(this));
 
-  var notesIndex = this.state.selectedNotebook ? <NoteIndex notebook={this.state.selectedNotebook}/> : <div>Working</div>;
+  if (this.state.selectedNotebook) {
+    var selectedNotebook = this.state.selectedNotebook.title;
+  }
+
+  var notesIndex = this.state.selectedNotebook ? <NoteIndex notebook={this.state.selectedNotebook}/> : <div></div>;
 
   return (
     <div className='container group'>
       <div className='notebook-container'>
         <NoteBookForm/>
-        {notebooks}
+        <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
+        {selectedNotebook ? selectedNotebook :notebooks}
       </div>
       <div>
         {notesIndex}

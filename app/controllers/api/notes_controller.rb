@@ -3,7 +3,7 @@ class Api::NotesController < ApplicationController
     @note = Note.new(note_params)
     @note.user_id = current_user.id
     @note.notebook_id = params[:notebook_id]
-    @note.save
+    @note.save!
   end
 
   def destroy
@@ -12,7 +12,7 @@ class Api::NotesController < ApplicationController
   def index
     @notebook = Notebook.find(params[:notebook_id])
     @notes = @notebook.notes
-    render json: @notes 
+    render json: @notes
   end
 
   def show

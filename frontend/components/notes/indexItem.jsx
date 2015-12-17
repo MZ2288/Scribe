@@ -1,16 +1,11 @@
 var React = require('react');
 
 var NoteIndexItem = React.createClass({
-  getInitialState: function () {
-    var title = this.props.note.title;
-    var body = this.props.note.body;
-    return ({ title: title, body: body});
-  },
 
   render: function () {
     return (
       <div>
-        <p>{this.state.body}</p>
+        <p>{this.props.note.body}</p>
       </div>
     );
   }
