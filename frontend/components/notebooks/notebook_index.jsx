@@ -51,7 +51,7 @@ var NotebookIndex = React.createClass({
       <div className='notebook-container'>
         <NoteBookForm/>
         <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
-        {selectedNotebook ? selectedNotebook :notebooks}
+        {selectedNotebook ? selectedNotebook : notebooks}
       </div>
       <div>
         {notesIndex}

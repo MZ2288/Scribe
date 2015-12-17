@@ -16,6 +16,14 @@ NoteStore.addNote = function (note) {
   _notes.push(note);
 };
 
+NoteStore.deleteNote = function (note) {
+  for (var i = 0; i < _notes.length; i++) {
+    if (_notes[i] === note) {
+      _notes.splice(i, 1);
+    }
+  }
+};
+
 NoteStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case NOTE_CONSTANTS.RECEIVED_ALL_NOTES:
@@ -25,6 +33,11 @@ NoteStore.__onDispatch = function (payload) {
     case NOTE_CONSTANTS.CREATE_NOTE:
       NoteStore.addNote(payload.note);
       NoteStore.__emitChange();
+      break;
+    case NOTE_CONSTANTS.DELETE_NOTE:
+      NoteStore.deleteNote(payload.note);
+      NoteStore.__emitChange();
+      break;
   }
 };
 

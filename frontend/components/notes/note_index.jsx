@@ -6,7 +6,10 @@ var NoteIndexItem = require('./indexItem');
 
 var NoteIndex = React.createClass({
   getInitialState: function () {
-    return({ notes: NoteStore.all() });
+    return({
+      notes: NoteStore.all(),
+      selectedNote: null
+    });
   },
 
   componentDidMount: function () {
@@ -26,17 +29,29 @@ var NoteIndex = React.createClass({
     this.setState({notes: NoteStore.all() });
   },
 
+  selectNote: function (note) {
+    this.setState({ selectedNote: note });
+  },
+
+  unselectNote: function () {
+    this.setState({ selectedNote: null });
+  },
+
   render: function(){
     var noteItems = this.state.notes.map(function (noteItem, idx) {
-      return <NoteIndexItem note={noteItem} key={idx}/>;
-    });
+      return <NoteIndexItem note={noteItem} key={idx} handleClick={this.selectNote}/>;
+    }.bind(this));
 
+    if (this.state.selectedNote) {
+      var selectedNote = <p>{this.state.selectedNote.body}</p>;
+    }
     return (
       <div>
           <NoteForm notebookId={this.props.notebook.id}/>
+          <button onClick={this.unselectNote}>Back to All Notes</button>
           {this.props.notebook.id}
           <ul>
-            {noteItems}
+            {selectedNote ? selectedNote : noteItems}
           </ul>
       </div>
     );

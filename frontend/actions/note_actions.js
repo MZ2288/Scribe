@@ -14,6 +14,13 @@ var NoteActions = {
       actionType: NoteConstants.CREATE_NOTE,
       note: note
     });
+  },
+
+  deleteNote: function (note) {
+    AppDispatcher.dispatch({
+      actionType: NoteConstants.DELETE_NOTE,
+      note: note
+    });
   }
 };
 
