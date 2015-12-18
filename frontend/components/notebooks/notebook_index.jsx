@@ -52,10 +52,15 @@ var NotebookIndex = React.createClass({
       }.bind(this));
 
     if (this.state.selectedNotebook) {
-      var selectedNotebook = this.state.selectedNotebook.title;
+      var notesIndex  = <NoteIndex notebook={this.state.selectedNotebook}/>;
+      var selectedNotebookDisplay =
+        <div>
+          <span>
+            this.state.selectedNotebook.title;
+          </span>
+           {notesIndex}
+        </div>;
     }
-
-    // var notesIndex = this.state.selectedNotebook ? <NoteIndex notebook={this.state.selectedNotebook}/> : <div></div>;
 
     if (this.state.active) {
       var noteBookContainerClasses = "notebook-container active";
@@ -68,19 +73,15 @@ var NotebookIndex = React.createClass({
           <div className={noteBookContainerClasses}>
             <NoteBookForm/>
             <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
-            {selectedNotebook ? selectedNotebook : notebooks}
-          </div>
-          <div>
+            <br></br>
+            <div>
+              {selectedNotebookDisplay ? selectedNotebookDisplay : notebooks}
+            </div>
           </div>
         </div>
       </div>
     );
   }
-
 });
 
 module.exports = NotebookIndex;
-
-
-
-// {notesIndex}

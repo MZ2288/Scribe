@@ -3,6 +3,7 @@ var NoteStore = require('../../stores/note_store');
 var ApiUtil = require('../../util/api_util');
 var NoteForm = require('./noteform');
 var NoteIndexItem = require('./indexItem');
+var NoteShowPage = require('./note_show_page');
 
 var NoteIndex = React.createClass({
   getInitialState: function () {
@@ -38,13 +39,20 @@ var NoteIndex = React.createClass({
   },
 
   render: function(){
+    var selectedNoteShow = <div></div>;
+
     var noteItems = this.state.notes.map(function (noteItem, idx) {
-      return <NoteIndexItem note={noteItem} key={idx} handleClick={this.selectNote}/>;
-    }.bind(this));
+      return <NoteIndexItem
+        note={noteItem}
+        key={idx}
+        handleClick={this.selectNote}/>;
+      }.bind(this));
 
     if (this.state.selectedNote) {
-      var selectedNote = <p>{this.state.selectedNote.body}</p>;
+      var selectedNote = <span>{this.state.selectedNote.title}</span>;
+      var selectedNoteShow = <NoteShowPage note={this.state.selectedNote}/>;
     }
+
     return (
       <div>
           <NoteForm notebookId={this.props.notebook.id}/>
@@ -52,6 +60,9 @@ var NoteIndex = React.createClass({
           <ul>
             {selectedNote ? selectedNote : noteItems}
           </ul>
+          <div>
+            {selectedNoteShow}
+          </div>
       </div>
     );
   }

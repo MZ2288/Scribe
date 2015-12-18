@@ -26,11 +26,11 @@ var NoteForm = React.createClass({
     return(
       <form onSubmit={this.createNote}>
         <div>
-          <label>Title:</label>
+          <label>Note Title:</label>
             <input type='text' valueLink={this.linkState('title')}/>
         </div>
         <div>
-         <label>Body:</label>
+         <label>Note Body:</label>
          <textarea type='text' valueLink={this.linkState('body')}/>
        </div>
         <button>Create Note</button>
