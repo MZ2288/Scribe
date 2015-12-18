@@ -2,7 +2,8 @@ var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
     _notes = [],
     NoteStore = new Store(AppDispatcher),
-    NOTE_CONSTANTS = require('../constants/note_constants');
+    NOTE_CONSTANTS = require('../constants/note_constants'),
+    NOTEBOOK_CONSTANTS = require('../constants/notebook_constants');
 
 var resetNotes = function(notes){
   _notes = notes;
@@ -36,6 +37,10 @@ NoteStore.__onDispatch = function (payload) {
       break;
     case NOTE_CONSTANTS.DELETE_NOTE:
       NoteStore.deleteNote(payload.note);
+      NoteStore.__emitChange();
+      break;
+    case NOTEBOOK_CONSTANTS.DELETE_NOTEBOOK:
+      _notes = [];
       NoteStore.__emitChange();
       break;
   }

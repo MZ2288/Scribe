@@ -3,6 +3,7 @@ var NotebookActions = require('../actions/notebook_actions');
 
 var ApiUtil = {
   fetchNotes: function (id) {
+    debugger
     $.ajax({
       url: "api/notes",
       type: "GET",

@@ -49,7 +49,6 @@ var NoteIndex = React.createClass({
       <div>
           <NoteForm notebookId={this.props.notebook.id}/>
           <button onClick={this.unselectNote}>Back to All Notes</button>
-          {this.props.notebook.id}
           <ul>
             {selectedNote ? selectedNote : noteItems}
           </ul>

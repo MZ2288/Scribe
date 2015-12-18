@@ -18,9 +18,8 @@ class Api::NotebooksController < ApplicationController
 
   def destroy
     @notebook = Notebook.find(params[:id])
-    id = @notebook.id
     @notebook.destroy
-    render json: id
+    render json: @notebook.id
   end
 
   private

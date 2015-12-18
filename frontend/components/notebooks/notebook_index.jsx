@@ -44,41 +44,43 @@ var NotebookIndex = React.createClass({
   },
 
   render: function(){
-  var notebooks = this.state.notebooks.map(function (notebook, idx) {
-      return <NotebookIndexItem
-        handleClick={this.selectNotebook}
-        notebook={notebook}
-        key={idx}/>;
-    }.bind(this));
+    var notebooks = this.state.notebooks.map(function (notebook, idx) {
+        return <NotebookIndexItem
+          handleClick={this.selectNotebook}
+          notebook={notebook}
+          key={idx}/>;
+      }.bind(this));
 
-  if (this.state.selectedNotebook) {
-    var selectedNotebook = this.state.selectedNotebook.title;
-  }
+    if (this.state.selectedNotebook) {
+      var selectedNotebook = this.state.selectedNotebook.title;
+    }
 
-  var notesIndex = this.state.selectedNotebook ? <NoteIndex notebook={this.state.selectedNotebook}/> : <div></div>;
+    // var notesIndex = this.state.selectedNotebook ? <NoteIndex notebook={this.state.selectedNotebook}/> : <div></div>;
 
-  if (this.state.active) {
-    var noteBookContainerClasses = "notebook-container active";
-  } else {
-    var noteBookContainerClasses = "notebook-container";
-  }
-  return (
-    <div className='container group'>
-      <div className="notebook-index">
-        <div className={noteBookContainerClasses}>
-          <NoteBookForm/>
-          <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
-          {selectedNotebook ? selectedNotebook : notebooks}
-        </div>
-        <div>
-          {notesIndex}
+    if (this.state.active) {
+      var noteBookContainerClasses = "notebook-container active";
+    } else {
+      var noteBookContainerClasses = "notebook-container";
+    }
+    return (
+      <div className='container group'>
+        <div className="notebook-index">
+          <div className={noteBookContainerClasses}>
+            <NoteBookForm/>
+            <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
+            {selectedNotebook ? selectedNotebook : notebooks}
+          </div>
+          <div>
+          </div>
         </div>
       </div>
-    </div>
-
-  );
-}
+    );
+  }
 
 });
 
 module.exports = NotebookIndex;
+
+
+
+// {notesIndex}
