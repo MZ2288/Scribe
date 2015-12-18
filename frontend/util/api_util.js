@@ -65,6 +65,13 @@ var ApiUtil = {
         NotebookActions.deleteNotebook(id);
       }
     });
+  },
+
+  logout: function () {
+    $.ajax({
+      url: "/session",
+      type: "DELETE"
+    });
   }
 };
 

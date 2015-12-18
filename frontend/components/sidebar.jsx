@@ -1,36 +1,50 @@
 
 var React = require('react');
-
+var ApiUtil = require('../util/api_util');
+var ShowActions = require('../actions/show_actions');
+var ShowStore = require('../stores/show_store');
 var Sidebar = React.createClass({
+
+  activateNotebooks: function () {
+    ShowActions.ShowNotebookIndex();
+  },
+
   render: function() {
     return (
-      <div className="col-xs-1">
-        <div className="sidebar">
-          // <img className="logo" src="/assets/logo" />
+      <div className="sidebar">
+        <div>
+          <img className="logo" src="/assets/logo" />
+          <div className='sidebar-buttons'>
           <ul>
-            <li onClick={this.props.addNote}
-                className="upper-buttons new-note"
-                data-content="Add Note"></li>
-            <li onClick={this.props.search}
-                className="upper-buttons search"
-                data-content="Search"></li>
-            <li className="upper-buttons chat"
-                data-content="Chat"></li>
-          </ul>
+              <li onClick={this.props.addNote}
+                  className="upper-buttons new-note"
+                  data-content="Add Note">
+                  <i className="fa fa-plus fa-2x"></i>
+              </li>
+              <li onClick={this.props.search}
+                  className="upper-buttons search"
+                  data-content="Search">
+                  <i className="fa fa-search fa-2x"></i>
+              </li>
+            </ul>
 
-          <ul className="lower-ul">
-            <li onClick={this.props.showShortcuts}
-                className="lower-buttons shortcuts"
-                data-content="Shortcuts"></li>
-            <li onClick={this.props.showNotes}
-                className="lower-buttons notes"
-                data-content="Notes"></li>
-            <li onClick={this.props.showNotebooks}
-                className="lower-buttons notebooks"
-                data-content="Notebooks"></li>
-            <li className="lower-buttons tags"
-                data-content="Tags"></li>
-          </ul>
+            <ul className="lower-ul">
+              <li onClick={this.props.showNotes}
+                  className="lower-buttons notes"
+                  data-content="Notes">
+                  <i className="fa fa-sticky-note fa-2x"></i>
+              </li>
+              <li onClick={this.activateNotebooks}
+                  className="lower-buttons notebooks"
+                  data-content="Notebooks">
+                  <i className="fa fa-book fa-2x"></i>
+              </li>
+              <li className="lower-buttons tags"
+                  data-content="Tags">
+                  <i className="fa fa-tags fa-2x"></i>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     );

@@ -4,27 +4,35 @@ var ApiUtil = require('../../util/api_util');
 var NoteBookForm = require('./notebookform');
 var NotebookIndexItem = require('./indexItem');
 var NoteIndex = require('../notes/note_index');
-
+var AppDispatcher = require('../../dispatcher/dispatcher');
+var SHOW_CONSTANTS = require('../../constants/show_constants');
+var ShowStore = require('../../stores/show_store');
 var NotebookIndex = React.createClass({
 
   getInitialState: function () {
     return {
       notebooks: NoteBookStore.all(),
-      selectedNotebook: null
+      selectedNotebook: null,
+      active: false
     };
   },
 
   componentDidMount: function () {
     this.NoteBookStoreListener = NoteBookStore.addListener(this._onChange);
+    this.ShowStoreListener = ShowStore.addListener(this._onChange);
     ApiUtil.fetchNotebooks();
   },
 
   componentWillUnmount: function () {
     this.NoteBookStoreListener.remove();
+    this.ShowStoreListener.remove();
   },
 
   _onChange: function () {
-    this.setState({notebooks: NoteBookStore.all() });
+    this.setState({
+      notebooks: NoteBookStore.all(),
+      active: ShowStore.active()
+     });
   },
 
   selectNotebook: function (notebook) {
@@ -37,8 +45,11 @@ var NotebookIndex = React.createClass({
 
   render: function(){
   var notebooks = this.state.notebooks.map(function (notebook, idx) {
-    return <NotebookIndexItem handleClick={this.selectNotebook} notebook={notebook} key={idx}/>;
-  }.bind(this));
+      return <NotebookIndexItem
+        handleClick={this.selectNotebook}
+        notebook={notebook}
+        key={idx}/>;
+    }.bind(this));
 
   if (this.state.selectedNotebook) {
     var selectedNotebook = this.state.selectedNotebook.title;
@@ -46,17 +57,25 @@ var NotebookIndex = React.createClass({
 
   var notesIndex = this.state.selectedNotebook ? <NoteIndex notebook={this.state.selectedNotebook}/> : <div></div>;
 
+  if (this.state.active) {
+    var noteBookContainerClasses = "notebook-container active";
+  } else {
+    var noteBookContainerClasses = "notebook-container";
+  }
   return (
     <div className='container group'>
-      <div className='notebook-container'>
-        <NoteBookForm/>
-        <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
-        {selectedNotebook ? selectedNotebook : notebooks}
-      </div>
-      <div>
-        {notesIndex}
+      <div className="notebook-index">
+        <div className={noteBookContainerClasses}>
+          <NoteBookForm/>
+          <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
+          {selectedNotebook ? selectedNotebook : notebooks}
+        </div>
+        <div>
+          {notesIndex}
+        </div>
       </div>
     </div>
+
   );
 }
 

@@ -11,11 +11,13 @@ var ReactDOM = require('react-dom'),
 var App = React.createClass({
   render: function(){
     return (
-        <div>
-          <header><h1>Scribe</h1></header>
+        <div className="sidebar-parent">
           <Sidebar/>
-          <NotebookIndex/>
-          {this.props.children}
+          <div>
+            <header><h1>Scribe</h1></header>
+            <NotebookIndex/>
+            {this.props.children}
+          </div>
         </div>
     );
   }

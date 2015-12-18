@@ -3,12 +3,20 @@
   height: 20px;
 }
 
-.col-xs-1 {
+.sidebar {
   padding: 12px 0;
   background-color: #eee;
   border-right: 1px solid #ccc;
-  height: 100vh;
+  height: 120%;
+  top: 0px;
   float: left;
+  width: 90px;
+  z-index: 1;
+  position: fixed;
+}
+
+.sidebar-buttons {
+  margin-top: 50px;
 }
 
 .logo {
@@ -16,6 +24,11 @@
   height: 40px;
   margin: 0 auto;
   display: block;
+}
+
+.lower-ul .fa {
+  position: relative;
+  top: 8px;
 }
 
 .upper-buttons {
@@ -36,30 +49,6 @@
 
 .upper-buttons, .lower-buttons {
   position: relative;
-}
-
-.new-note {
-  background-image: url("/assets/new_note.png");
-}
-
-.new-note:hover {
-  background-image: url("/assets/white-plus.png")
-}
-
-.search {
-  background-image: url("/assets/search.png");
-}
-
-.search:hover {
-  background-image: url("/assets/white-search.png");
-}
-
-.chat {
-  background-image: url("/assets/chat.png");
-}
-
-.chat:hover {
-  background-image: url("/assets/white-chat.png");
 }
 
 .upper-buttons:nth-child(2) {
@@ -89,42 +78,24 @@
   margin: 10px auto;
 }
 
-.shortcuts {
-  background-image: url("/assets/star.png");
-}
-
 .shortcuts:hover {
-  background-image: url("/assets/white-star.png");
   background-color: #2dbe60;
   cursor: pointer;
-}
-
-.notes {
-  background-image: url("/assets/note.png");
 }
 
 .notes:hover {
-  background-image: url("/assets/white-note.png");
   background-color: #2dbe60;
   cursor: pointer;
-}
-
-.notebooks {
-  background-image: url("/assets/notebook.png");
 }
 
 .notebooks:hover {
-  background-image: url("/assets/white-notebook.png");
   background-color: #2dbe60;
   cursor: pointer;
 }
 
-.tags {
-  background-image: url("/assets/tag.png");
-}
+
 
 .tags:hover {
-  background-image: url("/assets/white-tag.png");
   background-color: #2dbe60;
   cursor: pointer;
 }
