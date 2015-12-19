@@ -23,3 +23,26 @@
   float: right;
   width: 70%
 }
+
+.container.group {
+  width: 70%;
+  float: right;
+  height: 100%;
+  border: none;
+}
+
+
+ .notebook-container {
+   opacity: 0;
+   left: -400px;
+   position: relative;
+   transition: left 0.5s linear, opacity 0.5s ease-out;
+   width: 100%;
+ }
+
+ .notebook-container.active {
+   opacity: 1;
+   left: 0px;
+   position: relative;
+   height: 100%;
+ }

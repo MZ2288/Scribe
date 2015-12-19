@@ -56,7 +56,7 @@ var NotebookIndex = React.createClass({
       var selectedNotebookDisplay =
         <div>
           <span>
-            this.state.selectedNotebook.title;
+            {this.state.selectedNotebook.title}
           </span>
            {notesIndex}
         </div>;
@@ -68,15 +68,13 @@ var NotebookIndex = React.createClass({
       var noteBookContainerClasses = "notebook-container";
     }
     return (
-      <div className='container group'>
-        <div className="notebook-index">
-          <div className={noteBookContainerClasses}>
-            <NoteBookForm/>
-            <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
-            <br></br>
-            <div>
-              {selectedNotebookDisplay ? selectedNotebookDisplay : notebooks}
-            </div>
+      <div className="notebook-index">
+        <div className={noteBookContainerClasses}>
+          <NoteBookForm/>
+          <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
+          <br></br>
+          <div>
+            {selectedNotebookDisplay ? selectedNotebookDisplay : notebooks}
           </div>
         </div>
       </div>

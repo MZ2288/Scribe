@@ -15,8 +15,7 @@ var App = React.createClass({
         <div className="sidebar-parent">
           <Sidebar/>
           <NotebookIndex/>
-          <div>
-            <header><h1>Scribe</h1></header>
+          <div className='container group'>
             {this.props.children}
           </div>
         </div>

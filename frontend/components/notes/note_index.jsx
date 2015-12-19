@@ -4,8 +4,11 @@ var ApiUtil = require('../../util/api_util');
 var NoteForm = require('./noteform');
 var NoteIndexItem = require('./indexItem');
 var NoteShowPage = require('./note_show_page');
+var History = require('react-router').History;
 
 var NoteIndex = React.createClass({
+  mixins: [History],
+
   getInitialState: function () {
     return({
       notes: NoteStore.all(),
@@ -31,7 +34,8 @@ var NoteIndex = React.createClass({
   },
 
   selectNote: function (note) {
-    this.setState({ selectedNote: note });
+    var url = "notes/" + note.id;
+    this.history.pushState(null, url);
   },
 
   unselectNote: function () {
@@ -49,7 +53,7 @@ var NoteIndex = React.createClass({
       }.bind(this));
 
     if (this.state.selectedNote) {
-      var selectedNote = <span>{this.state.selectedNote.title}</span>;
+      // var selectedNote = <span>{this.state.selectedNote.title}</span>;
       var selectedNoteShow = <NoteShowPage note={this.state.selectedNote}/>;
     }
 
@@ -58,7 +62,7 @@ var NoteIndex = React.createClass({
           <NoteForm notebookId={this.props.notebook.id}/>
           <button onClick={this.unselectNote}>Back to All Notes</button>
           <ul>
-            {selectedNote ? selectedNote : noteItems}
+            {noteItems}
           </ul>
           <div>
             {selectedNoteShow}

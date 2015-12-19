@@ -9,7 +9,10 @@
 </head>
 <body>
   <nav>
-    <%= button_to "Sign Out", session_url, :method => :delete %>
+    <header><h1>Scribe</h1></header>
+    <span class="signout-button">
+      <%= button_to "Sign Out", session_url, :method => :delete %>
+    </span>
   </nav>
 
 <%= yield %>

@@ -14,6 +14,10 @@ var ApiUtil = {
     });
   },
 
+  fetchSingleNote: function () {
+    
+  },
+
   fetchNotebooks: function () {
     $.ajax({
       url: "api/notebooks",

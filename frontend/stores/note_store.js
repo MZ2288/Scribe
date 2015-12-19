@@ -9,6 +9,12 @@ var resetNotes = function(notes){
   _notes = notes;
 };
 
+NoteStore.find = function (id) {
+  return _notes.find(function (el) {
+    return el.id === id;
+  });
+};
+
 NoteStore.all = function () {
   return _notes.slice();
 };
