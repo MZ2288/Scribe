@@ -3,9 +3,9 @@ var ReactDOM = require('react-dom'),
     ReactRouter = require('react-router'),
     Router = ReactRouter.Router,
     Route = ReactRouter.Route,
-    IndexRoute = ReactRouter.IndexRoute,
     NotebookIndex = require('./components/notebooks/notebook_index'),
     Sidebar = require('./components/sidebar'),
+    AllNotes = require('./components/notes/all_notes'),
     NoteIndex = require('./components/notes/note_index'),
     NoteShowPage = require('./components/notes/note_show_page');
 
@@ -15,6 +15,7 @@ var App = React.createClass({
         <div className="sidebar-parent">
           <Sidebar/>
           <NotebookIndex/>
+          <AllNotes/>
           <div className='container group'>
             {this.props.children}
           </div>

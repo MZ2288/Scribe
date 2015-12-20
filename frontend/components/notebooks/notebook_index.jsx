@@ -67,6 +67,7 @@ var NotebookIndex = React.createClass({
     } else {
       var noteBookContainerClasses = "notebook-container";
     }
+
     return (
       <div className="notebook-index">
         <div className={noteBookContainerClasses}>

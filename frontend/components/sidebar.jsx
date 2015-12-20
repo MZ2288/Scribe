@@ -9,6 +9,11 @@ var Sidebar = React.createClass({
     ShowActions.ShowNotebookIndex();
   },
 
+  showNotes: function () {
+    ApiUtil.fetchNotes();
+    ShowActions.ShowAllNotes();
+  },
+
   render: function() {
     return (
       <div className="sidebar">
@@ -29,7 +34,7 @@ var Sidebar = React.createClass({
             </ul>
 
             <ul className="lower-ul">
-              <li onClick={this.props.showNotes}
+              <li onClick={this.showNotes}
                   className="lower-buttons notes"
                   data-content="Notes">
                   <i className="fa fa-sticky-note fa-2x"></i>

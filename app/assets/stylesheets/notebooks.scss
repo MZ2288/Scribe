@@ -15,8 +15,6 @@
 .notebook-container{
   float: left;
   width: 30%;
-  border-style: solid;
-  border-width: thin;
 }
 
 .notes-container{
@@ -30,6 +28,23 @@
   height: 100%;
   border: none;
 }
+
+
+ .allnotes-container {
+   opacity: 0;
+   left: -400px;
+   position: relative;
+   transition: left 0.5s linear, opacity 0.5s ease-out;
+   width: 100%;
+ }
+
+ .allnotes-container.active {
+   opacity: 1;
+   left: 0px;
+   position: relative;
+   height: 100%;
+   overflow-y: auto;
+ }
 
 
  .notebook-container {
@@ -46,4 +61,10 @@
    position: relative;
    height: 100%;
    overflow-y: auto;
+ }
+
+ .trash {
+   float: right;
+   position: relative;
+   bottom: 39px;
  }

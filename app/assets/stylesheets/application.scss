@@ -16,29 +16,40 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "notebook_index.scss";
-
+ @import url(https://fonts.googleapis.com/css?family=Arvo|Pacifico);
  ul {
    list-style: none;
  }
 
  html, body {
    height: 100%;
+   font-family: "arvo";
  }
 
  #root {
    height: 96%;
  }
 
- h1 {
-   margin-top: 0px;
- }
-
  nav {
    background: #2dbe60;
-   height: 4%;
+   height: 7%;
    min-height: 25px;
+ }
+
+ nav header h1 {
+   padding-top: 4px;
+   margin-top: 0px;
+   font-family: "pacifico";
+   font-size: 3.6em;
  }
 
  .signout-button {
    float: right;
+   position: relative;
+   top: -64px;
+   left: 1px;
+ }
+
+ .container.group {
+   outline: 0;
  }

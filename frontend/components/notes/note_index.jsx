@@ -16,8 +16,11 @@ var NoteIndex = React.createClass({
     });
   },
 
-  componentDidMount: function () {
+  componentWillMount: function () {
     this.NoteStoreListener = NoteStore.addListener(this._onChange);
+  },
+
+  componentDidMount: function () {
     ApiUtil.fetchNotes(this.props.notebook.id);
   },
 
@@ -45,6 +48,10 @@ var NoteIndex = React.createClass({
   render: function(){
     var selectedNoteShow = <div></div>;
 
+    if (this.state.selectedNote) {
+      var selectedNoteShow = <NoteShowPage note={this.state.selectedNote}/>;
+    }
+
     var noteItems = this.state.notes.map(function (noteItem, idx) {
       return <NoteIndexItem
         note={noteItem}
@@ -52,15 +59,8 @@ var NoteIndex = React.createClass({
         handleClick={this.selectNote}/>;
       }.bind(this));
 
-    if (this.state.selectedNote) {
-      // var selectedNote = <span>{this.state.selectedNote.title}</span>;
-      var selectedNoteShow = <NoteShowPage note={this.state.selectedNote}/>;
-    }
-
     return (
       <div>
-          <NoteForm notebookId={this.props.notebook.id}/>
-          <button onClick={this.unselectNote}>Back to All Notes</button>
           <ul>
             {noteItems}
           </ul>

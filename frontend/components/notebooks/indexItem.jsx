@@ -1,11 +1,9 @@
 var React = require('react');
 var ApiUtil = require('../../util/api_util');
-var NotebookIndex = require('./notebook_index');
 
 var NotebookIndexItem = React.createClass({
   deleteNotebook: function (e) {
     e.preventDefault();
-    NotebookIndex.unselectNotebook();
     ApiUtil.deleteNotebook(this.props.notebook);
   },
 
@@ -21,7 +19,9 @@ var NotebookIndexItem = React.createClass({
           </span>
         </div>
         <br></br>
-        <button onClick={this.deleteNotebook}>Delete Notebook</button>
+        <p onClick={this.deleteNotebook} className='trash'>
+          <i className="fa fa-trash"></i>
+        </p>
       </div>
     );
   }

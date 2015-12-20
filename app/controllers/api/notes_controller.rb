@@ -14,8 +14,12 @@ class Api::NotesController < ApplicationController
   end
 
   def index
-    @notebook = Notebook.find(params[:notebook_id])
-    @notes = @notebook.notes
+    if params[:notebook_id] != "null"
+      @notebook = Notebook.find(params[:notebook_id])
+      @notes = @notebook.notes
+    else
+      @notes = current_user.notes
+    end
     render json: @notes
   end
 

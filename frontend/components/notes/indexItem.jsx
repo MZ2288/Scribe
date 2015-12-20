@@ -11,8 +11,11 @@ var NoteIndexItem = React.createClass({
     return (
       <div className="notes-index-item"
            onClick={this.props.handleClick.bind(null, this.props.note)}>
-        <p>{this.props.note.title}</p>
-        <button onClick={this.deleteNote}>Delete Note</button>
+        <span>{this.props.note.title}</span>
+        <br></br>
+        <p onClick={this.deleteNote} className='trash'>
+          <i className="fa fa-trash"></i>
+        </p>
       </div>
     );
   }

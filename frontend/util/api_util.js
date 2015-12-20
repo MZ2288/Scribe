@@ -3,6 +3,9 @@ var NotebookActions = require('../actions/notebook_actions');
 
 var ApiUtil = {
   fetchNotes: function (id) {
+    if (typeof id === "undefined") {
+      id = "null";
+    }
     $.ajax({
       url: "api/notes",
       type: "GET",
@@ -15,7 +18,7 @@ var ApiUtil = {
   },
 
   fetchSingleNote: function () {
-    
+
   },
 
   fetchNotebooks: function () {
