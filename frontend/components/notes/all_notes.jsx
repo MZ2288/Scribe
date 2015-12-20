@@ -37,9 +37,8 @@ var AllNotes = React.createClass({
     return (
       <div className="notebook-index">
         <div className={allNotesClasses}>
-          <br></br>
           <div>
-            Hello
+            <NoteIndex notebook="null"/>
           </div>
         </div>
       </div>
