@@ -1,6 +1,7 @@
 var React = require('react');
 var NoteStore = require('../../stores/note_store');
 var ApiUtil = require('../../util/api_util');
+var RichText = require('../quill');
 
 var NoteShowPage = React.createClass({
 
@@ -32,10 +33,10 @@ componentWillUnmount: function () {
     if(!this.state.note){
       return <div></div>;
     }
-    
+
     return (
       <div className="NoteShowPage">
-        {this.state.note.body}
+        <RichText text={this.state.note.body}/>
       </div>
     );
   }
