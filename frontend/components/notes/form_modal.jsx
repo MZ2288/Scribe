@@ -1,6 +1,7 @@
 var React = require('react');
 var Modal = require('boron/OutlineModal');
 var NoteForm = require('./noteform');
+var NoteBookStore = require('../../stores/notebook_store');
 
 var NoteFormModal = React.createClass({
   showModal: function () {

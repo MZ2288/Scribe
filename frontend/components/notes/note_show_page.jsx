@@ -1,7 +1,7 @@
 var React = require('react');
 var NoteStore = require('../../stores/note_store');
 var ApiUtil = require('../../util/api_util');
-// var RichText = require('../quill');
+var ReactQuill = require("react-quill");
 
 var NoteShowPage = React.createClass({
 
@@ -21,7 +21,6 @@ getInitialState: function () {
 
 componentDidMount: function () {
   this.NoteStoreListener = NoteStore.addListener(this._onChange);
-  // ApiUtil.fetchSingleNote(parseInt(this.props.params.noteId));
 },
 
 componentWillUnmount: function () {
@@ -36,6 +35,7 @@ componentWillUnmount: function () {
 
     return (
       <div className="NoteShowPage">
+        <ReactQuill theme="snow" value={this.state.note.body}/>
       </div>
     );
   }

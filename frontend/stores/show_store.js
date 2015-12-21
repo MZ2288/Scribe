@@ -11,6 +11,9 @@ ShowStore.active = function () {
 
 ShowStore.changeActiveStatus = function () {
   _active = !_active;
+  if (_active === true && _notesActive === true) {
+    _notesActive = false;
+  }
 };
 
 ShowStore.notesActive = function () {
@@ -19,6 +22,9 @@ ShowStore.notesActive = function () {
 
 ShowStore.changeNotesActiveStatus = function () {
   _notesActive = !_notesActive;
+  if (_notesActive === true && _active === true) {
+    _active = false;
+  }
 };
 
 ShowStore.__onDispatch = function (payload) {

@@ -32,10 +32,10 @@
     "flux": "^2.1.1",
     "history": "~1.13.0",
     "jquery": "^2.1.4",
-    "react": "^0.14.2",
-    "react-addons-linked-state-mixin": "^0.14.2",
+    "react": "^0.14.3",
+    "react-addons-linked-state-mixin": "^0.14.3",
     "react-dom": "^0.14.2",
-    "react-quill": "file:../../Downloads/react-quill-b15536998849206d73d31583247e9eeec338389c",
+    "react-quill": "git://github.com/jacktrades/react-quill.git",
     "react-router": "^1.0.0-rc4",
     "webpack": "^1.12.2"
   }

@@ -7,15 +7,19 @@ var ReactDOM = require('react-dom'),
     Sidebar = require('./components/sidebar'),
     AllNotes = require('./components/notes/all_notes'),
     NoteIndex = require('./components/notes/note_index'),
+    ReactQuill = require("react-quill"),
     NoteShowPage = require('./components/notes/note_show_page');
 
 var App = React.createClass({
+  getInitialState: function () {
+    return {value: ""};
+  },
+
   render: function(){
     return (
         <div className="sidebar-parent">
-          <Sidebar/>
           <NotebookIndex/>
-          <AllNotes/>
+          <Sidebar/>
           <div className='container group'>
             {this.props.children}
           </div>

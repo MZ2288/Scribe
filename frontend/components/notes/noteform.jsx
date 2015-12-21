@@ -1,6 +1,7 @@
 var React = require('react'),
     ApiUtil = require('../../util/api_util'),
-    LinkedStateMixin = require('react-addons-linked-state-mixin');
+    LinkedStateMixin = require('react-addons-linked-state-mixin'),
+    NotebookStore = require('../../stores/notebook_store');
 
 var NoteForm = React.createClass({
   mixins: [LinkedStateMixin],
@@ -16,23 +17,39 @@ var NoteForm = React.createClass({
     e.preventDefault();
     ApiUtil.createNote({
       title: this.state.title,
-      notebook_id: this.props.notebookId,
+      notebook_id: document.getElementById("selectList").value,
       body: this.state.body
     });
     this.setState({title: '', body: ''});
   },
 
   render: function(){
+    var NotebookDropdDownOptions = NotebookStore.all().map(function (notebook, idx) {
+      return (<option value={notebook.id}
+                      key={idx}>{notebook.title}
+              </option>);
+    });
+
     return(
       <form onSubmit={this.createNote}>
+
         <div>
-          <label>Note Title:</label>
-            <input type='text' valueLink={this.linkState('title')}/>
+         <label>Notebook</label>
+           <select id="selectList">
+             {NotebookDropdDownOptions}
+           </select>
         </div>
-        <div>
-         <label>Note Body:</label>
-         <textarea type='text' valueLink={this.linkState('body')}/>
-       </div>
+
+          <div>
+             <label>Note Title:</label>
+              <input type='text' valueLink={this.linkState('title')}/>
+          </div>
+
+          <div>
+           <label>Note Body:</label>
+           <textarea type='text' valueLink={this.linkState('body')}/>
+          </div>
+
         <button>Create Note</button>
       </form>
     );

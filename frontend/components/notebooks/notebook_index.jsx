@@ -7,6 +7,7 @@ var NoteIndex = require('../notes/note_index');
 var AppDispatcher = require('../../dispatcher/dispatcher');
 var SHOW_CONSTANTS = require('../../constants/show_constants');
 var ShowStore = require('../../stores/show_store');
+var AllNotes = require('../notes/all_notes');
 var NotebookIndex = React.createClass({
 
   getInitialState: function () {
@@ -70,6 +71,7 @@ var NotebookIndex = React.createClass({
 
     return (
       <div className="notebook-index">
+        <AllNotes/>
         <div className={noteBookContainerClasses}>
           <NoteBookForm/>
           <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
