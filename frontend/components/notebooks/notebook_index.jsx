@@ -69,17 +69,28 @@ var NotebookIndex = React.createClass({
       var noteBookContainerClasses = "notebook-container";
     }
 
+
+    var notebooksDisplay =     <div className={noteBookContainerClasses}>
+                                <NoteBookForm/>
+                                <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
+                                <br></br>
+                                <div>
+                                  {selectedNotebookDisplay ? selectedNotebookDisplay : notebooks}
+                                </div>
+                              </div>;
+
+    var notesDisplay = <AllNotes/>;
+
+    var whatToDisplay;
+    if (this.state.active) {
+      whatToDisplay = notesDisplay;
+    } else {
+      whatToDisplay = "Hello";
+    }
+      console.log(whatToDisplay);
     return (
       <div className="notebook-index">
-        <AllNotes/>
-        <div className={noteBookContainerClasses}>
-          <NoteBookForm/>
-          <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
-          <br></br>
-          <div>
-            {selectedNotebookDisplay ? selectedNotebookDisplay : notebooks}
-          </div>
-        </div>
+        {whatToDisplay}
       </div>
     );
   }
