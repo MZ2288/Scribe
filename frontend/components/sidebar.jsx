@@ -3,6 +3,8 @@ var React = require('react');
 var ApiUtil = require('../util/api_util');
 var ShowActions = require('../actions/show_actions');
 var ShowStore = require('../stores/show_store');
+var NoteFormModal = require('./notes/form_modal');
+var SearchModal = require('./notes/search_modal');
 var Sidebar = React.createClass({
 
   activateNotebooks: function () {
@@ -21,18 +23,9 @@ var Sidebar = React.createClass({
           <img className="logo" src="/assets/logo" />
           <div className='sidebar-buttons'>
           <ul>
-              <li onClick={this.props.addNote}
-                  className="upper-buttons new-note"
-                  data-content="Add Note">
-                  <i className="fa fa-plus fa-2x"></i>
-              </li>
-              <li onClick={this.props.search}
-                  className="upper-buttons search"
-                  data-content="Search">
-                  <i className="fa fa-search fa-2x"></i>
-              </li>
-            </ul>
-
+            <NoteFormModal/>
+            <SearchModal/>
+          </ul>
             <ul className="lower-ul">
               <li onClick={this.showNotes}
                   className="lower-buttons notes"
