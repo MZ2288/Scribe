@@ -7,7 +7,7 @@ var ReactDOM = require('react-dom'),
     Sidebar = require('./components/sidebar'),
     AllNotes = require('./components/notes/all_notes'),
     NoteIndex = require('./components/notes/note_index'),
-    ReactQuill = require("react-quill"),
+    ReactQuill = require("./vendor/react-quill"),
     NoteShowPage = require('./components/notes/note_show_page'),
     Slideout = require('./components/slideout');
 

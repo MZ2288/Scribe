@@ -27,7 +27,7 @@
  }
 
  #root {
-   height: 96%;
+   height: 100%;
    background-color: lightgrey;
  }
 
@@ -42,6 +42,7 @@
    margin-top: 0px;
    font-family: "pacifico";
    font-size: 3.6em;
+   box-shadow: 3px 0px 15px black;
  }
 
  .signout-button {
@@ -53,4 +54,6 @@
 
  .container.group {
    outline: 0;
+   width: 64%;
+   overflow-y: auto;
  }

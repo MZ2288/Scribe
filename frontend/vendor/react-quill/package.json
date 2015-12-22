@@ -1,0 +1,67 @@
+{
+  "name": "react-quill",
+  "version": "0.2.2",
+  "description": "The Quill rich-text editor as a React component.",
+  "author": {
+    "name": "zenoamaro",
+    "email": "zenoamaro@gmail.com"
+  },
+  "homepage": "https://github.com/zenoamaro/react-quill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zenoamaro/react-quill/issues",
+    "email": "zenoamaro@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zenoamaro/react-quill.git"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "test": "make test",
+    "build": "make build"
+  },
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "rich",
+    "text",
+    "rich-text",
+    "textarea"
+  ],
+  "files": [
+    "src/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "quill": "^0.20.0"
+  },
+  "peerDependencies": {
+    "react": ">=0.11.0"
+  },
+  "devDependencies": {
+    "blanket": "^1.1.6",
+    "jsdom": "^1.2.1",
+    "jshint": "^2.5.10",
+    "mocha": "^2.0.1",
+    "mocha-text-cov": "^0.1.0",
+    "react": "^0.12.0",
+    "should": "^4.3.0",
+    "sinon": "^1.12.1",
+    "travis-cov": "^0.2.5",
+    "uglify-js": "^2.4.15",
+    "webpack": "^1.4.13"
+  },
+  "gitHead": "a5657fc71296834a12b6d5fb539e4f61f356519f",
+  "readme": "React-Quill ![](https://travis-ci.org/zenoamaro/react-quill.svg?branch=master)\n==============================================================================\n\nA [Quill] component for [React].\n\nSee the [live demo].\n\n[Quill]: https://quilljs.com\n[React]: https://facebook.github.io/react/\n[live demo]: https://zenoamaro.github.io/react-quill/\n\n  1. [Quick start](#quick-start)\n  2. [Bundling with Webpack](#bundling-with-webpack)\n  3. [API reference](#api-reference)\n  4. [Building and testing](#building-and-testing)\n  5. [Changelog](#changelog)\n  6. [License](#license)\n\n\nQuick start\n-----------\n1. Use straight away:\n\n    ~~~jsx\n    /*\n    Include `quill.base.css` to give the editor some basic styles it needs.\n    You can find the _base_ theme in the quill distribution or inside\n    `node_modules`.\n    */\n\n    var React = require('react');\n    var ReactQuill = require('react-quill');\n\n    var MyComponent = React.createClass({\n      /* ... */\n\n      render: function() {\n        return (\n          <ReactQuill value={this.state.value} />\n        );\n      }\n    });\n    ~~~\n\n2. Customize a few settings:\n\n    ~~~jsx\n    /*\n    Include a theme like `quill.snow.css` and activate it in the\n    configuration like shown below. You can find the _snow_ theme in the\n    quill distribution or inside `node_modules`.\n    */\n\n    var MyComponent = React.createClass({\n      /* ... */\n\n      onTextChange: function(value) {\n        this.setState({ text:value });\n      },\n\n      render: function() {\n        return (\n          <ReactQuill theme=\"snow\"\n                      value={this.state.text}\n                      onChange={this.onTextChange} />\n        );\n      }\n    });\n    ~~~\n\n3. Custom controls:\n\n    ~~~jsx\n    var MyComponent = React.createClass({\n      /* ... */\n\n      render: function() {\n        return (\n          <ReactQuill>\n            <ReactQuill.Toolbar key=\"toolbar\"\n                                ref=\"toolbar\"\n                                items={ReactQuill.Toolbar.defaultItems} />\n            <div key=\"editor\"\n                 ref=\"editor\"\n                 className=\"quill-contents\"\n                 dangerouslySetInnerHTML={{__html:this.getEditorContents()}} />\n          </ReactQuill>\n        );\n      }\n    });\n    ~~~\n\n4. Mixing in:\n\n    ~~~jsx\n    var MyComponent = React.createClass({\n      mixins: [ ReactQuill.Mixin ],\n\n      componentDidMount: function() {\n        var editor = this.createEditor(\n          this.getEditorElement(),\n          this.getEditorConfig()\n        );\n        this.setState({ editor:editor });\n      },\n\n      componentWillReceiveProps: function(nextProps) {\n        if ('value' in nextProps && nextProps.value !== this.props.value) {\n          this.setEditorContents(this.state.editor, nextProps.value);\n        }\n      },\n\n      /* ... */\n    });\n    ~~~\n\n    See [component.js](src/component.js) for a fully fleshed-out example.\n\n\nBundling with Webpack\n---------------------\nQuill ships only a pre-built javascript file, so Webpack will complain:\n\n~~~\nError: ./~/react-quill/~/quill/dist/quill.js\nCritical dependencies:\n6:478-485 This seems to be a pre-built javascript file. Though this is possible, it's not recommended. Try to require the original source to get better results.\n@ ./~/react-quill/~/quill/dist/quill.js 6:478-485\n~~~\n\nThe warning is harmless, but if you want to silence it you can avoid parsing Quill by adding this to your Webpack configuration:\n\n~~~js\nmodule: {\n  // Shut off warnings about using pre-built javascript files\n  // as Quill.js unfortunately ships one as its `main`.\n  noParse: /node_modules\\/quill\\/dist/\n}\n~~~\n\nSee [#7](https://github.com/zenoamaro/react-quill/issues/7) for more details.\n\n\nAPI reference\n-------------\n\n### Props\n\n`id`\n: ID to be applied to the DOM element.\n\n`className`\n: Classes to be applied to the DOM element.\n\n`value`\n: Value for the editor as a controlled component. Note that due to limitations in Quill, this is actually a _semi-controlled_ mode, meaning that the edit is not prevented, but changing `value` will still replace the contents.\n\n`defaultValue`\n: Initial value for the editor as an uncontrolled component.\n\n`readOnly`\n: If true, the editor won't allow changing its contents.\n\n`modules`\n: An object specifying what modules are enabled, and their configuration. See the [modules section](http://quilljs.com/docs/modules/) over the Quill documentation for more information on what modules are available.\n\n`toolbar`\n: A list of toolbar items to use as custom configuration for the toolbar. Defaults (that also double as reference) are available as [`ReactQuill.Toolbar.defaultItems`](src/toolbar.js#L21) and [`ReactQuill.Toolbar.defaultColors`](src/toolbar.js#L6). See also the [Toolbar module](http://quilljs.com/docs/modules/toolbar/) over the Quill documentation for more information on the inner workings.\n\n`formats`\n: An array of formats to be enabled during editing. All implemented formats are enabled by default. See [Formats](http://quilljs.com/docs/formats/) for a list. Also accepts definitions of custom formats:\n```javascript\n[\n  \"list\",\n  \"bullet\",\n  \"bold\",\n  \"italic\",\n  { name: \"h1\", tag: \"H1\", prepare: \"heading\", type: \"line\" },\n  { name: \"h2\", tag: \"H2\", prepare: \"heading\", type: \"line\" },\n  { name: \"h3\", tag: \"H3\", prepare: \"heading\", type: \"line\" }\n];\n```\n\n`style`\n: An object with custom CSS rules to apply on the editor's container. Rules should be in React's \"camelCased\" naming style.\n\n`styles`\n: An object with custom CSS selectors and rules to add to the editor. Neither should be in \"camelCased\" style. Pass `false` to prevent Quill from injecting any style at all (except for text formats). See [configuration](http://quilljs.com/docs/configuration/) for details.\n\n`theme`\n: The name of the theme to apply to the editor. Defaults to `base`.\n\n`pollInterval`\n: Interval in ms between checks for local changes in editor contents.\n\n`onChange(value, delta, source)`\n: Called back with the new contents of the editor after change.\n\n`onChangeSelection(range, source)`\n: Called back with the new selected range, or null when unfocused.\n\n`onKeyPress(event)`\n: Called after a key has been pressed and released.\n: Note that, like its native counterpart, this won't be called for special keys such as <kbd>shift</kbd> or <kbd>enter</kbd>. If you need those, hook onto `onKeyDown` or `onKeyUp`.\n\n`onKeyDown(event)`\n: Called after a key has been pressed, but before it is released.\n: Note that, due to how Quill works, it's possible that you won't receive events for keys such as <kbd>enter</kbd>, <kbd>backspace</kbd> or <kbd>delete</kbd>. If that's the case, try hooking onto `onKeyUp` instead.\n\n`onKeyUp(event)`\n: Called after a key has been released.\n\n\n### Methods\n\nIf you have [a ref to a ReactQuill node](https://facebook.github.io/react/docs/more-about-refs.html), you will be able to invoke the following methods:\n\n`focus()`\n: Focuses the editor.\n\n`blur()`\n: Removes focus from the editor.\n\n\nBuilding and testing\n--------------------\nYou can run the automated test suite:\n\n    $ npm test\n\nAnd build a minificated version of the source:\n\n    $ npm run build\n\nMore tasks are available on the [Makefile](Makefile):\n\n    lint: lints the source\n    spec: runs the test specs\n    coverage: runs the code coverage test\n    test: lint, spec and coverage threshold test\n    build: builds the minified version\n\n\nChangelog\n---------\n#### v0.2.2\n- Added missing `modules` propType and documentation.\n- Children are now cloned so ReactQuill can own their refs. Fixes #20.\n\n#### v0.2.1\n- Link toolbar button and module are now enabled by default. Fixes #19.\n\n#### v0.2.0\n- Fix React warnings about unique `key` props in toolbar (@Janekk).\n- Sending `delta` and `source` from editor change events. Fixes #17.\n- Rewritten uncontrolled and semi-controlled operation. Should fix #9, #10 and #14.\n- Editor props can now be changed after mounting.\n- Added callback for selection change event. Closes #12.\n\n[Full changelog](CHANGELOG.md)\n\n\nRoadmap\n-------\n- [ ] First-class support for modules\n- [ ] Better API for custom controls?\n\n\nLicense\n-------\nThe MIT License (MIT)\n\nCopyright (c) 2015, zenoamaro <zenoamaro@gmail.com>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+  "readmeFilename": "README.md",
+  "_id": "react-quill@0.2.2",
+  "_shasum": "c868e0a0e8367c68c5f9f6d42f087cb36157460e",
+  "_from": "git://github.com/jacktrades/react-quill.git",
+  "_resolved": "git://github.com/jacktrades/react-quill.git#a5657fc71296834a12b6d5fb539e4f61f356519f"
+}
