@@ -8,7 +8,8 @@ var ReactDOM = require('react-dom'),
     AllNotes = require('./components/notes/all_notes'),
     NoteIndex = require('./components/notes/note_index'),
     ReactQuill = require("react-quill"),
-    NoteShowPage = require('./components/notes/note_show_page');
+    NoteShowPage = require('./components/notes/note_show_page'),
+    Slideout = require('./components/slideout');
 
 var App = React.createClass({
   getInitialState: function () {
@@ -18,7 +19,7 @@ var App = React.createClass({
   render: function(){
     return (
         <div className="sidebar-parent">
-          <NotebookIndex/>
+          <Slideout/>
           <Sidebar/>
           <div className='container group'>
             {this.props.children}

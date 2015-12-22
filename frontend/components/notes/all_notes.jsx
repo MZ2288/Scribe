@@ -3,6 +3,8 @@ var ShowStore = require('../../stores/show_store');
 var NotebookIndexItem = require('./indexItem');
 var NoteIndex = require('../notes/note_index');
 var NoteStore = require('../../stores/note_store');
+var NoteBookStore = require('../../stores/notebook_store');
+var ApiUtil = require('../../util/api_util');
 var AllNotes = React.createClass({
   getInitialState: function () {
     return {
@@ -13,10 +15,14 @@ var AllNotes = React.createClass({
 
   componentDidMount: function () {
     this.ShowStoreListener = ShowStore.addListener(this._onChange);
+    this.NoteBookStoreListener = NoteBookStore.addListener(this._onChange);
+    ApiUtil.fetchNotebooks();
   },
 
   componentWillUnmount: function () {
+    console.log("Unmounting");
     this.ShowStoreListener.remove();
+    this.NoteBookStoreListener.remove();
   },
 
   _onChange: function () {
@@ -27,12 +33,11 @@ var AllNotes = React.createClass({
   },
 
   render: function () {
-
-        if (this.state.active) {
-          var allNotesClasses = "allnotes-container active";
-        } else {
-          var allNotesClasses = "allnotes-container";
-        }
+    if (this.state.active) {
+      var allNotesClasses = "allnotes-container active";
+    } else {
+      var allNotesClasses = "allnotes-container";
+    }
 
     return (
 
