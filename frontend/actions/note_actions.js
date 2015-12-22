@@ -16,8 +16,11 @@ var NoteActions = {
     });
   },
 
-  updateNote: function () {
-
+  updateNote: function (note) {
+    AppDispatcher.dispatch({
+      actionType: NoteConstants.UPDATE_NOTE,
+      note: note
+    });
   },
 
   deleteNote: function (note) {

@@ -31,6 +31,9 @@ NoteStore.deleteNote = function (id) {
   }
 };
 
+NoteStore.updateNote = function (note) {
+};
+
 NoteStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case NOTE_CONSTANTS.RECEIVED_ALL_NOTES:
@@ -43,6 +46,10 @@ NoteStore.__onDispatch = function (payload) {
       break;
     case NOTE_CONSTANTS.DELETE_NOTE:
       NoteStore.deleteNote(payload.note);
+      NoteStore.__emitChange();
+      break;
+    case NOTE_CONSTANTS.UPDATE_NOTE:
+      NoteStore.updateNote(payload.note);
       NoteStore.__emitChange();
       break;
     case NOTEBOOK_CONSTANTS.DELETE_NOTEBOOK:

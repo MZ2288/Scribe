@@ -27,6 +27,10 @@ class Api::NotesController < ApplicationController
   end
 
   def update
+    debugger
+    @note = Note.find(params[:note][:id])
+    @note.update(note_params)
+    render json: @note
   end
 
   private

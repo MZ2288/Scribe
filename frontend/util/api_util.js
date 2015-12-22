@@ -50,13 +50,14 @@ var ApiUtil = {
     });
   },
 
-  updateNote: function (note) {
+  updateNote: function (stateObject) {
+    var id = stateObject.note.id;
     $.ajax({
-      url: 'api/note',
+      url: 'api/note/' + id,
       type: "PATCH",
-      data: {note: note, notebook_id: note.notebook_id},
-      success: function () {
-        NoteActions.updateNote();
+      data: {note: stateObject.note, body: stateObject.text },
+      success: function (note) {
+        NoteActions.updateNote(note);
       }
     });
   },

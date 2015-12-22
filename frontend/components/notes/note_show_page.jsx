@@ -12,7 +12,9 @@ var NoteShowPage = React.createClass({
   },
 
   _onChange: function () {
-    this.setState({ note: this.getNoteFromStore() });
+    this.setState({ note: this.getNoteFromStore(),
+                    text: this.getNoteFromStore().body
+    });
   },
 
   getInitialState: function () {
@@ -28,11 +30,11 @@ var NoteShowPage = React.createClass({
   },
 
   onTextChange: function(value) {
-    this.setState({ body: value });
+    this.setState({ text: value });
   },
 
   saveChanges: function () {
-    ApiUtil.updateNote(this.state.note);
+    ApiUtil.updateNote(this.state);
   },
 
   render: function () {
@@ -44,7 +46,7 @@ var NoteShowPage = React.createClass({
       <div className="NoteShowPage">
         <button onClick={this.saveChanges}>SAVE CHANGES</button>
         <ReactQuill theme="snow"
-                    value={this.state.note.body}
+                    value={this.state.text}
                     onChange={this.onTextChange}/>
       </div>
     );
