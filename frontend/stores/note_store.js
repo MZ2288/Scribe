@@ -32,6 +32,11 @@ NoteStore.deleteNote = function (id) {
 };
 
 NoteStore.updateNote = function (note) {
+  for (var i = 0; i < _notes.length; i++) {
+    if (_notes[i].id === note.id) {
+      _notes[i] = note;
+    }
+  }
 };
 
 NoteStore.__onDispatch = function (payload) {
