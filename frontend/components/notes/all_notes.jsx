@@ -20,7 +20,6 @@ var AllNotes = React.createClass({
   },
 
   componentWillUnmount: function () {
-    console.log("Unmounting");
     this.ShowStoreListener.remove();
     this.NoteBookStoreListener.remove();
   },

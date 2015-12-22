@@ -2,6 +2,7 @@ var React = require('react');
 var NoteStore = require('../../stores/note_store');
 var ApiUtil = require('../../util/api_util');
 var ReactQuill = require("react-quill");
+var RichText = require('../quill');
 
 var NoteShowPage = React.createClass({
 
