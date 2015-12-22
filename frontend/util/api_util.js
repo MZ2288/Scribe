@@ -50,6 +50,17 @@ var ApiUtil = {
     });
   },
 
+  updateNote: function (note) {
+    $.ajax({
+      url: 'api/note',
+      type: "PATCH",
+      data: {note: note, notebook_id: note.notebook_id},
+      success: function () {
+        NoteActions.updateNote();
+      }
+    });
+  },
+
   deleteNote: function (note) {
     $.ajax({
       url: "/api/notes/" + note.id,

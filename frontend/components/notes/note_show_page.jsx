@@ -2,32 +2,38 @@ var React = require('react');
 var NoteStore = require('../../stores/note_store');
 var ApiUtil = require('../../util/api_util');
 var ReactQuill = require("react-quill");
-var RichText = require('../quill');
 
 var NoteShowPage = React.createClass({
 
-getStateFromStore: function () {
-  var splitPath = this.props.location.pathname.split("/");
-  var id = splitPath[splitPath.length - 1];
-  return { note: NoteStore.find(parseInt(id)) };
-},
+  getNoteFromStore: function () {
+    var splitPath = this.props.location.pathname.split("/");
+    var id = splitPath[splitPath.length - 1];
+    return NoteStore.find(parseInt(id));
+  },
 
-_onChange: function () {
-  this.setState(this.getStateFromStore());
-},
+  _onChange: function () {
+    this.setState({ note: this.getNoteFromStore() });
+  },
 
-getInitialState: function () {
-  return this.getStateFromStore();
-},
+  getInitialState: function () {
+    return { note: this.getNoteFromStore() };
+  },
 
-componentDidMount: function () {
-  this.NoteStoreListener = NoteStore.addListener(this._onChange);
-},
+  componentDidMount: function () {
+    this.NoteStoreListener = NoteStore.addListener(this._onChange);
+  },
 
-componentWillUnmount: function () {
-  this.NoteStoreListener.remove();
-},
+  componentWillUnmount: function () {
+    this.NoteStoreListener.remove();
+  },
 
+  onTextChange: function(value) {
+    this.setState({ body: value });
+  },
+
+  saveChanges: function () {
+    ApiUtil.updateNote(this.state.note);
+  },
 
   render: function () {
     if(!this.state.note){
@@ -36,7 +42,10 @@ componentWillUnmount: function () {
 
     return (
       <div className="NoteShowPage">
-        <ReactQuill theme="snow" value={this.state.note.body}/>
+        <button onClick={this.saveChanges}>SAVE CHANGES</button>
+        <ReactQuill theme="snow"
+                    value={this.state.note.body}
+                    onChange={this.onTextChange}/>
       </div>
     );
   }

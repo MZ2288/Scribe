@@ -16,6 +16,10 @@ var NoteActions = {
     });
   },
 
+  updateNote: function () {
+
+  },
+
   deleteNote: function (note) {
     AppDispatcher.dispatch({
       actionType: NoteConstants.DELETE_NOTE,
