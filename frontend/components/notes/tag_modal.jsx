@@ -1,8 +1,7 @@
 var React = require('react');
 var Modal = require('boron/OutlineModal');
-var NoteForm = require('./noteform');
 
-var NoteFormModal = React.createClass({
+var TagModal = React.createClass({
   showModal: function () {
     this.refs.modal.show();
   },
@@ -14,16 +13,16 @@ var NoteFormModal = React.createClass({
   render: function () {
     return (
       <li onClick={this.showModal}
-          className="upper-buttons search"
-          data-content="Search">
+          className="lower-buttons tags"
+          data-content="Tags">
           <Modal ref="modal">
-            <span>Magic eight ball says come back later!</span>
+            <span>Are you thirteen? You don't need tags.</span>
           </Modal>
-          <i className="fa fa-search fa-2x"></i>
+          <i className="fa fa-tags fa-2x"></i>
       </li>
 
     );
   }
 });
 
-module.exports = NoteFormModal;
+module.exports = TagModal;

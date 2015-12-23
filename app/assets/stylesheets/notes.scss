@@ -20,6 +20,11 @@
    color: white;
  }
 
+ .notes-index-item:active {
+   border: 10px solid black;
+   border-right: 0px;
+ }
+
  .all-notes-span {
    font-size: 21px;
  }

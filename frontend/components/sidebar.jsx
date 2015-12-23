@@ -5,6 +5,7 @@ var ShowActions = require('../actions/show_actions');
 var ShowStore = require('../stores/show_store');
 var NoteFormModal = require('./notes/form_modal');
 var SearchModal = require('./notes/search_modal');
+var TagModal = require('./notes/tag_modal');
 var Sidebar = React.createClass({
 
   activateNotebooks: function () {
@@ -37,10 +38,6 @@ var Sidebar = React.createClass({
                   data-content="Notebooks">
                   <i className="fa fa-book fa-2x"></i>
               </li>
-              <li className="lower-buttons tags"
-                  data-content="Tags">
-                  <i className="fa fa-tags fa-2x"></i>
-              </li>
             </ul>
           </div>
         </div>
@@ -50,3 +47,4 @@ var Sidebar = React.createClass({
 });
 
 module.exports = Sidebar;
+              // <TagModal/>
