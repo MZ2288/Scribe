@@ -13,8 +13,7 @@ body {
 }
 
 #picture {
-  background: url(workspace.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
+  background-image: image-url("workspace.png");
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
