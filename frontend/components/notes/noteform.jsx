@@ -21,6 +21,7 @@ var NoteForm = React.createClass({
       body: this.state.body
     });
     this.setState({title: '', body: ''});
+    this.props.hideModal();
   },
 
   render: function(){

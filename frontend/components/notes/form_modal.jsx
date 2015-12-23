@@ -18,7 +18,7 @@ var NoteFormModal = React.createClass({
           className="upper-buttons new-note"
           data-content="Add Note">
           <Modal ref="modal">
-            <NoteForm/>
+            <NoteForm hideModal={this.hideModal}/>
           </Modal>
           <i className="fa fa-plus fa-2x"></i>
       </li>
