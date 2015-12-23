@@ -9,7 +9,8 @@ var ReactDOM = require('react-dom'),
     NoteIndex = require('./components/notes/note_index'),
     ReactQuill = require("./vendor/react-quill"),
     NoteShowPage = require('./components/notes/note_show_page'),
-    Slideout = require('./components/slideout');
+    Slideout = require('./components/slideout'),
+    Quill = require('quill');
 
 var App = React.createClass({
   getInitialState: function () {
@@ -36,5 +37,6 @@ var routes = (
 );
 
 document.addEventListener("DOMContentLoaded", function () {
+  window.Quill = Quill;
   ReactDOM.render(<Router>{routes}</Router>, document.getElementById('root'));
 });
