@@ -30,12 +30,13 @@
     "babel-preset-react": "^6.1.18",
     "boron": "^0.2.2",
     "flux": "^2.1.1",
-    "history": "~1.13.0",
+    "history": "1.13.x",
     "jquery": "^2.1.4",
+    "quill": "^0.20.1",
     "react": "^0.14.3",
     "react-addons-linked-state-mixin": "^0.14.3",
     "react-dom": "^0.14.2",
-    "react-router": "^1.0.0-rc4",
+    "react-router": "1.0.2",
     "react-search-input": "^0.6.0",
     "webpack": "^1.12.2"
   }
