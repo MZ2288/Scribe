@@ -4,7 +4,10 @@ var ApiUtil = require('../../util/api_util');
 var NotebookIndexItem = React.createClass({
   deleteNotebook: function (e) {
     e.preventDefault();
-    ApiUtil.deleteNotebook(this.props.notebook);
+    var answer = confirm("Are you sure you want to delete this notebook?");
+    if (answer) {
+      ApiUtil.deleteNotebook(this.props.notebook);
+    }
   },
 
   render: function () {

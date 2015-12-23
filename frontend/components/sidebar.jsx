@@ -47,4 +47,7 @@ var Sidebar = React.createClass({
 });
 
 module.exports = Sidebar;
-              // <TagModal/>
+              // <li className="lower-buttons tags"
+              //     data-content="Tags">
+              //     <i className="fa fa-tags fa-2x"></i>
+              // </li>

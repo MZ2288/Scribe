@@ -3,9 +3,12 @@ var ApiUtil = require('../../util/api_util');
 
 var NoteIndexItem = React.createClass({
   deleteNote: function (e) {
-   e.preventDefault();
-   ApiUtil.deleteNote(this.props.note);
- },
+    e.preventDefault();
+    var answer = confirm("Are you sure you want to delete this note?");
+    if (answer) {
+      ApiUtil.deleteNote(this.props.note);
+    }
+  },
 
   render: function () {
     return (
