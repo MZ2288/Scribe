@@ -44,7 +44,7 @@ var NoteShowPage = React.createClass({
 
     return (
       <div className="NoteShowPage">
-        <button onClick={this.saveChanges}>SAVE CHANGES</button>
+        <button className="save-button" onClick={this.saveChanges}>SAVE CHANGES</button>
         <ReactQuill theme="snow"
                     value={this.state.note.body}
                     onChange={this.onTextChange}/>

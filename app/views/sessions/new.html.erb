@@ -1,3 +1,37 @@
+<script type="text/javascript" name="guest-login">
+  function fillInField(field, text, cb) {
+    if (text === ""){
+      cb && cb()
+      return;
+    }
+
+    field.val(field.val() + text[0]);
+    setTimeout(function () {
+      fillInField(field, text.slice(1, text.length), cb)
+    }, 60);
+  }
+
+  $(function(){
+
+    $("input.guest").click(function(event) {
+      event.preventDefault();
+
+      setTimeout(function () {
+        fillInField($(".username"), "scribbler", function(){
+
+          setTimeout(function () {
+
+            fillInField($(".password"), "password", function(){
+              $("input.sign-in").trigger("click");
+            });
+
+          }, 1500);
+        });
+      }, 600);
+    });
+  });
+</script>
+
 <div class="container">
   <div class="row lg-margin-top">
     <div class="col-xs-6 col-xs-offset-3 text-align">
@@ -32,11 +66,8 @@
             <input type="password" class="form-control password" name="user[password]">
           </div>
 
-          <label class="label-text"><input type="checkbox" class="checkbox-input">&nbsp;&nbsp;Remember Me</label>
-
-          <input type="submit" value="Sign In" class="btn btn-custom">
+          <input type="submit" value="Sign In" class="btn btn-custom sign-in">
           <input type="button" value="Guest Login" class="btn btn-custom guest">
-          <!-- <a class="forgot-password" href="#">Forgot Password?</a> -->
         </form>
       </div>
     </div>

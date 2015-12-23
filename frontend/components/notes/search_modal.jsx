@@ -1,6 +1,7 @@
 var React = require('react');
 var Modal = require('boron/OutlineModal');
 var NoteForm = require('./noteform');
+var SearchInput = require('react-search-input');
 
 var NoteFormModal = React.createClass({
   showModal: function () {
@@ -17,7 +18,8 @@ var NoteFormModal = React.createClass({
           className="upper-buttons search"
           data-content="Search">
           <Modal ref="modal">
-            <span>Magic eight ball says come back later!</span>
+            <span>Searching all notes for matches!</span>
+            <SearchInput/>
           </Modal>
           <i className="fa fa-search fa-2x"></i>
       </li>

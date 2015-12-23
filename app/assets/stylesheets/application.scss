@@ -28,7 +28,11 @@
 
  #root {
    height: 100%;
+   width: 100%;
    background-color: lightgrey;
+   position: relative;
+   overflow-x: hidden;
+   overflow-y: hidden;
  }
 
  nav {
@@ -47,13 +51,26 @@
 
  .signout-button {
    float: right;
-   position: relative;
-   top: -64px;
-   left: 1px;
+   position: absolute;
+   top: 0px;
+   right: 0px;
  }
 
  .container.group {
    outline: 0;
    width: 64%;
    overflow-y: auto;
+   width: 70%;
+   position: absolute;
+   right: -14px;
+ }
+
+ .save-button:hover {
+  cursor: pointer;
+  background-color: #2dbe60;
+  color: white;
+ }
+
+ .ql-picker-label.ql-active {
+   overflow: hidden;
  }
