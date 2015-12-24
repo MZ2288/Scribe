@@ -28,6 +28,10 @@ var NotebookIndex = React.createClass({
     this.NoteBookStoreListener.remove();
     this.ShowStoreListener.remove();
   },
+  //
+  // componentDidUpdate: function () {
+  //   $()
+  // },
 
   _onChange: function () {
     this.setState({
