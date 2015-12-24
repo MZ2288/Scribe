@@ -13,12 +13,14 @@ var NoteBookForm = React.createClass({
     e.preventDefault();
     ApiUtil.createNotebook({title: this.state.title});
     this.setState({title: ''});
+    this.props.hideModal();
   },
 
   render: function(){
     return(
       <form onSubmit={this.createNotebook}>
-        <div>
+        <div className="notebook-form">
+          <br></br>
           <label>Notebook Title:</label>
             <input type='text' valueLink={this.linkState('title')}/>
         </div>

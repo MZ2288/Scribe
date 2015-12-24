@@ -1,7 +1,7 @@
 var React = require('react');
 var NoteBookStore = require('../../stores/notebook_store');
 var ApiUtil = require('../../util/api_util');
-var NoteBookForm = require('./notebookform');
+var NotebookFormModal = require('./notebook_form_modal');
 var NotebookIndexItem = require('./indexItem');
 var NoteIndex = require('../notes/note_index');
 var AppDispatcher = require('../../dispatcher/dispatcher');
@@ -56,9 +56,6 @@ var NotebookIndex = React.createClass({
       var notesIndex  = <NoteIndex notebook={this.state.selectedNotebook}/>;
       var selectedNotebookDisplay =
         <div>
-          <span>
-            {this.state.selectedNotebook.title}
-          </span>
            {notesIndex}
         </div>;
     }
@@ -71,9 +68,15 @@ var NotebookIndex = React.createClass({
 
     return (
       <div className={noteBookContainerClasses}>
-        <NoteBookForm/>
-          <button onClick={this.unselectNotebook}>Back to All Notebooks</button>
-          <br></br>
+        <NotebookFormModal/>
+        <button
+          className="backtonotebooks-button"
+          onClick={this.unselectNotebook}>
+          <span>
+            Back to All Notebooks
+          </span>
+        </button>
+        <br></br>
         <div>
           {selectedNotebookDisplay ? selectedNotebookDisplay : notebooks}
         </div>

@@ -36,9 +36,11 @@
  }
 
  nav {
-   background: #2dbe60;
+   background: gainsboro;
    height: 7%;
    min-height: 25px;
+   border: 3px solid;
+   border-right-width: 0;
  }
 
  nav header h1 {
@@ -54,13 +56,16 @@
    position: absolute;
    top: 10px;
    right: 10px;
-   border: 5px solid;
+   border: 3px solid;
    border-radius: 5px;
  }
 
  .signout-button:hover {
   cursor: pointer;
-  color: #2dbe60;
+  color: black;
+  border: 4px solid;
+  background-color: white;
+  border-radius: 3px;
  }
 
  .container.group {
@@ -81,6 +86,7 @@
  .save-button {
    margin-top: 15px;
    border: 2px solid;
+   border-radius: 2px
  }
 
  .ql-picker-label.ql-active {
@@ -98,5 +104,20 @@
  .allnotes-container.active, .notebook-container.active  {
    background-color: white;
    height: 100%;
-   border: 3px solid lightgrey;
+   border: 3px solid black;
  }
+
+ .newnotebook-button, .backtonotebooks-button {
+   top: 10px;
+   right: 10px;
+   border: 5px solid;
+   border-radius: 5px;
+ }
+
+ .newnotebook-button:hover {
+  cursor: pointer;
+ }
+
+ .ql-snow.ql-toolbar .ql-picker .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker .ql-picker-label:hover {
+   color: black;
+}

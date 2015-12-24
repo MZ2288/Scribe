@@ -6,7 +6,7 @@
 .sidebar {
   padding: 12px 0;
   background-color: #eee;
-  border-right: 10px solid #ccc;
+  border-right: 4px solid black;
   height: 100%;
   top: 0px;
   float: left;
@@ -57,8 +57,8 @@
 
 .upper-buttons:hover {
   cursor: pointer;
-  background-color: #2dbe60;
-  border: 1px solid #1fae52;
+  background-color: gainsboro;
+  border: 1px solid gainsboro;
 }
 
 .lower-ul {
@@ -84,12 +84,12 @@
 }
 
 .notes:hover {
-  background-color: #2dbe60;
+  background-color: gainsboro;
   cursor: pointer;
 }
 
 .notebooks:hover {
-  background-color: #2dbe60;
+  background-color: gainsboro;
   cursor: pointer;
 }
 
