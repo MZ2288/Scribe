@@ -32,7 +32,7 @@
    position: relative;
    overflow-x: hidden;
    overflow-y: hidden;
-   background-color: grey;
+   background-color: white;
  }
 
  nav {
@@ -52,8 +52,10 @@
  .signout-button {
    float: right;
    position: absolute;
-   top: 0px;
-   right: 0px;
+   top: 10px;
+   right: 10px;
+   border: 5px solid;
+   border-radius: 5px;
  }
 
  .signout-button:hover {
@@ -76,6 +78,11 @@
   color: white;
  }
 
+ .save-button {
+   margin-top: 15px;
+   border: 2px solid;
+ }
+
  .ql-picker-label.ql-active {
    overflow: hidden;
  }
@@ -84,10 +91,12 @@
    background-color: white;
    border-radius: 10px;
    min-height: 900px;
+   border: 2px solid gainsboro;
  }
 
  .allnotes-container, .notebook-container,
  .allnotes-container.active, .notebook-container.active  {
-   background-color: lightgrey;
-   height: 100%
+   background-color: white;
+   height: 100%;
+   border: 3px solid lightgrey;
  }
