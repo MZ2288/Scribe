@@ -17,6 +17,10 @@ var Sidebar = React.createClass({
     ShowActions.ShowAllNotes();
   },
 
+  componentDidMount: function () {
+    this.lowerButtonsNotebooks.click();
+  },
+
   render: function() {
     return (
       <div className="sidebar">
@@ -25,7 +29,6 @@ var Sidebar = React.createClass({
           <div className='sidebar-buttons'>
           <ul>
             <NoteFormModal/>
-            <SearchModal/>
           </ul>
             <ul className="lower-ul">
               <li onClick={this.showNotes}
@@ -34,6 +37,7 @@ var Sidebar = React.createClass({
                   <i className="fa fa-sticky-note fa-2x"></i>
               </li>
               <li onClick={this.activateNotebooks}
+                  ref={function(ref){this.lowerButtonsNotebooks = ref;}.bind(this)}
                   className="lower-buttons notebooks"
                   data-content="Notebooks">
                   <i className="fa fa-book fa-2x"></i>
@@ -47,6 +51,7 @@ var Sidebar = React.createClass({
 });
 
 module.exports = Sidebar;
+            // <SearchModal/>
               // <li className="lower-buttons tags"
               //     data-content="Tags">
               //     <i className="fa fa-tags fa-2x"></i>
