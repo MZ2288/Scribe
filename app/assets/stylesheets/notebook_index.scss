@@ -12,9 +12,10 @@
  font-family: "arvo";
  font-size: 18px;
  font-weight: 300;
- color: #202020;
+ color: black;
  transition: background 200ms, color 200ms;
  padding: 12px;
+ border-bottom: 2px solid black;
 }
 
 .notebook-index-item:hover {
@@ -22,7 +23,7 @@
  background-color: gainsboro;
 }
 
-.notebook-index-item:active {
- border: 10px solid black;
- border-right: 0px;
-}
+// .notebook-index-item:active {
+//  border: 3px solid black;
+//  border-right: 0px;
+// }

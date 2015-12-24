@@ -12,17 +12,18 @@
    color: #202020;
    transition: background 200ms, color 200ms;
    padding: 12px;
+   border-bottom: 2px solid black;
  }
 
  .notes-index-item:hover {
    cursor: pointer;
    background-color: gainsboro;
  }
-
- .notes-index-item:active {
-   border: 10px solid black;
-   border-right: 0px;
- }
+ //
+ // .notes-index-item:active {
+ //   border: 10px solid black;
+ //   border-right: 0px;
+ // }
 
  .all-notes-span {
    font-size: 21px;

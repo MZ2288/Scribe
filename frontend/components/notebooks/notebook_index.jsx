@@ -68,14 +68,16 @@ var NotebookIndex = React.createClass({
 
     return (
       <div className={noteBookContainerClasses}>
-        <NotebookFormModal/>
-        <button
-          className="backtonotebooks-button"
-          onClick={this.unselectNotebook}>
-          <span>
-            Back to All Notebooks
-          </span>
-        </button>
+        <div className="top-of-notebook-index">
+          <NotebookFormModal/>
+          <button
+            className="backtonotebooks-button"
+            onClick={this.unselectNotebook}>
+            <span>
+              Back to All Notebooks
+            </span>
+          </button>
+        </div>
         <br></br>
         <div>
           {selectedNotebookDisplay ? selectedNotebookDisplay : notebooks}
