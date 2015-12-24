@@ -29,10 +29,10 @@
  #root {
    height: 100%;
    width: 100%;
-   background-color: lightgrey;
    position: relative;
    overflow-x: hidden;
    overflow-y: hidden;
+   background-color: grey;
  }
 
  nav {
@@ -78,4 +78,15 @@
 
  .ql-picker-label.ql-active {
    overflow: hidden;
+ }
+
+ .quill-contents.ql-container.ql-snow {
+   background-color: white;
+   border-radius: 10px;
+   min-height: 900px;
+ }
+
+ .allnotes-container, .notebook-container,
+ .allnotes-container.active, .notebook-container.active  {
+   background-color: lightgrey;
  }
