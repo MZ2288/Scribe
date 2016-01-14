@@ -32,23 +32,19 @@ var NoteForm = React.createClass({
     });
 
     return(
-      <form onSubmit={this.createNote}>
+      <form role='form' onSubmit={this.createNote}>
 
-        <div>
+        <div className='form-group'>
          <label>Notebook</label>
-           <select id="selectList">
+           <select className='form-control' id="selectList">
              {NotebookDropdDownOptions}
            </select>
-        </div>
 
-          <div>
              <label>Note Title:</label>
-              <input type='text' valueLink={this.linkState('title')}/>
-          </div>
+              <input className='form-control' type='text' valueLink={this.linkState('title')}/>
 
-          <div>
            <label>Note Body:</label>
-           <textarea type='text' valueLink={this.linkState('body')}/>
+           <textarea className='form-control' type='text' valueLink={this.linkState('body')}/>
           </div>
 
         <button>Create Note</button>
