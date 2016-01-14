@@ -35,15 +35,15 @@ var NoteForm = React.createClass({
       <form role='form' onSubmit={this.createNote}>
 
         <div className='form-group'>
-         <label>Notebook</label>
+         <label className='form-label'>Notebook</label>
            <select className='form-control' id="selectList">
              {NotebookDropdDownOptions}
            </select>
 
-             <label>Note Title:</label>
+             <label className='form-label'>Note Title:</label>
               <input className='form-control' type='text' valueLink={this.linkState('title')}/>
 
-           <label>Note Body:</label>
+           <label className='form-label'>Note Body:</label>
            <textarea className='form-control' type='text' valueLink={this.linkState('body')}/>
           </div>
 
