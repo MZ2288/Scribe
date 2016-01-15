@@ -18,11 +18,11 @@ var NoteBookForm = React.createClass({
 
   render: function(){
     return(
-      <form onSubmit={this.createNotebook}>
-        <div className="notebook-form">
+      <form role='form' onSubmit={this.createNotebook}>
+        <div className="notebook-form form-group">
           <br></br>
-          <label>Notebook Title:</label>
-            <input type='text' valueLink={this.linkState('title')}/>
+          <label className='form-label'>Notebook Title:</label>
+            <input className='form-control' type='text' valueLink={this.linkState('title')}/>
         </div>
         <button>Create Notebook</button>
       </form>
