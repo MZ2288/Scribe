@@ -126,6 +126,9 @@
 .form-label {
   background-color: gainsboro;
   width: 100%;
+  border: 2px solid black;
+  border-right: none;
+  border-left: none;
 }
 //
 // .top-of-notebook-index {
