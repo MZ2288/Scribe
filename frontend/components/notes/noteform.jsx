@@ -35,7 +35,7 @@ var NoteForm = React.createClass({
       <form role='form' onSubmit={this.createNote}>
 
         <div className='form-group'>
-         <label className='form-label'>Notebook</label>
+         <label className='form-label'>Notebook:</label>
            <select className='form-control' id="selectList">
              {NotebookDropdDownOptions}
            </select>
