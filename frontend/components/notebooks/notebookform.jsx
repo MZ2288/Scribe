@@ -20,7 +20,6 @@ var NoteBookForm = React.createClass({
     return(
       <form role='form' onSubmit={this.createNotebook}>
         <div className="notebook-form form-group">
-          <br></br>
           <label className='form-label'>Notebook Title:</label>
             <input className='form-control' type='text' valueLink={this.linkState('title')}/>
         </div>
