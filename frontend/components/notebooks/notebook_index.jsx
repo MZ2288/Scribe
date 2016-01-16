@@ -74,7 +74,7 @@ var NotebookIndex = React.createClass({
             className="backtonotebooks-button"
             onClick={this.unselectNotebook}>
             <span>
-              Back to All Notebooks
+              Back to Notebooks
             </span>
           </button>
         </div>

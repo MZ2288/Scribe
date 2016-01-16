@@ -15,7 +15,7 @@ var NotebookFormModal = React.createClass({
     return (
       <button className="newnotebook-button" onClick={this.showModal}>
         <span>
-          Create a new notebook
+          Create Notebook
         </span>
           <Modal ref="modal">
             <NotebookForm hideModal={this.hideModal}/>
