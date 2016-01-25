@@ -44,7 +44,7 @@ var AllNotes = React.createClass({
           <div>
             <br></br>
             <br></br>
-            <span className="all-notes-span">Here Are All Your Notes!!!</span>
+            <span className="all-notes-span">NOTES</span>
             <br></br>
             <br></br>
             <NoteIndex notebook="null"/>
